@@ -1,4 +1,4 @@
-site-start
+Darren Jaworski - personal site
 ==========
 
-A boilerplate for website that includes HTML5 Boilerplate, normalize.css, Susy Grid, SASS, Compass and a few custom mixins and javascript snippets.
+Building using the <a href="https://github.com/kotyy/site-start">site-start</a>. The only tangible things to be changed in this version are the d3 visualizations that need to be made responsive. 
