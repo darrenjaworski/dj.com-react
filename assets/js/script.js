@@ -34,7 +34,9 @@ if ($('#data').length > 0){
 
 	var path = d3.geo.path().projection(projection).pointRadius(1.5);
 
-	var svg = d3.select("#geography").append("svg").attr("width", width).attr("height", height);
+	var svg = d3.select("#geography").append("svg").style("width", width).style("height", height);
+	
+	d3.select(window).on('resize', resize1);
 	
 	queue().defer(d3.json, "assets/data/us.json").defer(d3.json, "assets/data/lived.json").await(ready);
 
@@ -254,6 +256,25 @@ if ($('#data').length > 0){
 		}
 
 	});
+	
+	function resize1() {
+	   width = parseInt(d3.select('#geography').style('width'));
+		    height = width * .642;
+		
+		    projection
+		        .translate([width / 2, height / 2])
+		        .scale(width * 1.357);
+		
+		    svg
+		        .style('width', width + 'px')
+		        .style('height', height + 'px');
+		
+		    svg.selectAll('.land').attr('d', path);
+		    svg.selectAll('.states').attr('d', path);
+		    svg.selectAll('.points').attr('d', path);
+		    svg.selectAll('.livedarc').attr('d', path);
+
+	}
 	
 } 
 
