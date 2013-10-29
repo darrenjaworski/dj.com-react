@@ -275,14 +275,17 @@ if ($('#pienav').length > 0){
 	    .value(function(d) { return d.percent; });
 	
 	var svg = d3.select("#pienav").append("svg")
-	    .attr("width", width)
-	    .attr("height", height)
-	  .append("g")
+	    .style("width", width + "px")
+	    .style("height", height + "px").append("g")
 	    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+	    
+	d3.select(window).on('resize', resize);
+	
+	var g;
 	
 	d3.csv("assets/data/index.csv", function(error, data) {
 	
-	  var g = svg.selectAll(".arc")
+	  g = svg.selectAll(".arc")
 	      .data(pie(data))
 	      .enter().append("a")
 	      .attr("xlink:href", function(d){return d.data.url;})
@@ -301,6 +304,27 @@ if ($('#pienav').length > 0){
 	      .text(function(d) { return d.data.id; });
 	
 	});
+	
+	function resize() {
+	    width = parseInt(d3.select('#pienav').style('width'));
+	    height = Math.min(width, 600);
+		radius = Math.min(width, height) / 2;
+		
+		d3.select('svg')
+	        .style('width', width + 'px')
+	        .style('height', height + 'px');
+	        
+	        svg.style('width', width + 'px')
+	        .style('height', height + 'px')
+	        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+	
+	    arc
+	        .outerRadius(radius - 10);
+	        
+	    g.selectAll('path').attr('d', arc);
+	    g.selectAll('text').attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+	}
+	
 }
 		
 });
