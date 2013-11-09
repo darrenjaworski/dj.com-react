@@ -285,7 +285,7 @@ if ($('#pienav').length > 0){
     radius = Math.min(width, height) / 2;
 
 	var color = d3.scale.ordinal()
-	    .range(["#00A0B0", "#B04A00", "#EDC951"]);
+	    .range(["#00A0B0", "#8EB4EF", "#EDC951"]);
 	
 	var arc = d3.svg.arc()
 	    .outerRadius(radius - 10)

@@ -20,7 +20,7 @@ $grid-padding	:	1em;
 
 $datacolor: #EDC951;
 $journalismcolor: #00A0B0;
-$programmingcolor: #B04A00;
+$programmingcolor: #8EB4EF;
 
 
 
@@ -88,10 +88,13 @@ h3	{
 #social	{
 	> ul	{
 		> li	{
-			@include span-columns(3 omega, 12);
+			@include span-columns(4, 12);
+			padding-bottom: 2em;
+			&:nth-child(3)	{
+				@include omega
+			}
 			&:nth-child(4)	{
 				font-size: 4em;
-				@include omega
 			}
 		}
 	}
@@ -266,7 +269,13 @@ a	{
 	#social	{
 		> ul	{
 			> li	{
-				@include span-columns(6 omega, 12);
+				@include span-columns(6, 12);
+				&:nth-child(2)	{
+					@include omega;
+				}
+				&:nth-child(4)	{
+					padding-bottom: .5em;
+				}
 			}
 		}
 	}
