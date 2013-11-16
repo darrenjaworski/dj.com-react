@@ -19,7 +19,7 @@ $grid-padding	:	1em;
 @import "partials/navigation"; 
 
 $datacolor: #658f85;
-$journalismcolor: #f2d129;
+$porfoliocolor: #f2d129;
 $programmingcolor: #d9cd8f;
 $redcontrast: #d9435f;
 $purplecontrast: #645e8c;
@@ -62,9 +62,9 @@ h3	{
 	fill: $datacolor;
 }
 
-#journalism	{
-	color: $journalismcolor;
-	fill: $journalismcolor;
+#portfolio	{
+	color: $porfoliocolor;
+	fill: $porfoliocolor;
 }
 
 #programming	{
@@ -146,14 +146,14 @@ path {
 
 .livedarc {
   	fill: none;
-  	stroke: $journalismcolor;
+  	stroke: $porfoliocolor;
   	stroke-width: 5px;
   	stroke-linecap: round;
 }
 
 .points {
-	stroke: $journalismcolor;
-	fill: $journalismcolor;
+	stroke: $porfoliocolor;
+	fill: $porfoliocolor;
 	stroke-width: 7px;
 }
 
