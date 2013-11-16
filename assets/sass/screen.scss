@@ -18,10 +18,11 @@ $grid-padding	:	1em;
 @import "partials/layout";
 @import "partials/navigation"; 
 
-$datacolor: #EDC951;
-$journalismcolor: #00A0B0;
-$programmingcolor: #8EB4EF;
-
+$datacolor: #658f85;
+$journalismcolor: #f2d129;
+$programmingcolor: #d9cd8f;
+$redcontrast: #d9435f;
+$purplecontrast: #645e8c;
 
 
 /* sitewide */ 
@@ -58,14 +59,17 @@ h3	{
 
 #data	{
 	color: $datacolor;
+	fill: $datacolor;
 }
 
 #journalism	{
 	color: $journalismcolor;
+	fill: $journalismcolor;
 }
 
 #programming	{
 	color: $programmingcolor;
+	fill: $programmingcolor;
 }
 
 
@@ -132,7 +136,7 @@ path {
 }
 
 .land {
-	fill: #EDC951;
+	fill: $datacolor;
 }
 
 .states {
@@ -142,14 +146,14 @@ path {
 
 .livedarc {
   	fill: none;
-  	stroke: #6A4A3C;
+  	stroke: $journalismcolor;
   	stroke-width: 5px;
   	stroke-linecap: round;
 }
 
 .points {
-	stroke: #6A4A3C;
-	fill: #6A4A3C;
+	stroke: $journalismcolor;
+	fill: $journalismcolor;
 	stroke-width: 7px;
 }
 
@@ -219,7 +223,7 @@ article	{
 
 /* links */
 a	{
-	@include link-colors(#cc333f, #00a0b0, #cc333f, #cc333f, #000);
+	@include link-colors($purplecontrast, $redcontrast, $purplecontrast, $purplecontrast, $purplecontrast);
 	text-decoration: none;
 }
 

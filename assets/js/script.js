@@ -284,8 +284,8 @@ if ($('#pienav').length > 0){
     var height = Math.min(width, 600),
     radius = Math.min(width, height) / 2;
 
-	var color = d3.scale.ordinal()
-	    .range(["#00A0B0", "#8EB4EF", "#EDC951"]);
+	//var color = d3.scale.ordinal()
+	  //  .range(["#00A0B0", "#8EB4EF", "#EDC951"]);
 	
 	var arc = d3.svg.arc()
 	    .outerRadius(radius - 10)
@@ -315,7 +315,8 @@ if ($('#pienav').length > 0){
 	
 	  g.append("path")
 	      .attr("d", arc)
-	      .style("fill", function(d) { return color(d.data.id); })
+	      .attr("id", function(d) { return d.data.id; })
+	      //.style("fill", function(d) { return color(d.data.id); })
 	      .style("stroke", "white");
 	
 	  g.append("text")
