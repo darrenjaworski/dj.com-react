@@ -36,7 +36,7 @@ if ($('#data').length > 0){
 
 	var svg = d3.select("#geography").append("svg").style("width", width).style("height", height);
 	
-	d3.select(window).on('resize', resize1);
+	$(window).on('resize', resize1);
 	
 	queue().defer(d3.json, "assets/data/us.json").defer(d3.json, "assets/data/lived.json").await(ready);
 
@@ -300,7 +300,7 @@ if ($('#pienav').length > 0){
 	    .style("height", height + "px").append("g")
 	    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 	    
-	d3.select(window).on('resize', resize);
+	$(window).on('resize', resize);
 	
 	var g;
 	
