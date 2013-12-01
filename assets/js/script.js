@@ -1,26 +1,3 @@
-/* Fake placeholder support in browsers that do not support the HTML input placeholder attribute. Ideally this would be paired with a javascript function that prevents form submit if the a given input's value is equivalent to the placeholder attribute. */
-/*
-function initPlaceholderSupport() {
-    if( ! Modernizr.input.placeholder ) {
-        $('[placeholder]').focus(function() {
-          var input = $(this);
-          if (input.val() == input.attr('placeholder')) {
-            input.val('');
-            input.removeClass('placeholder');
-          }
-        }).blur(function() {
-          var input = $(this);
-          if (input.val() == '' || input.val() == input.attr('placeholder')) {
-            input.addClass('placeholder');
-            input.val(input.attr('placeholder'));
-          }
-        }).blur();
-    }
-}
-
-initPlaceholderSupport();
-*/
-
 $(document).ready(function() {
 
 var width = parseInt($('#container').css('width'));
@@ -28,33 +5,41 @@ var width = parseInt($('#container').css('width'));
 /* data page */
 if ($('#data').length > 0){
 	
+	$(window).on('resize', resize1);
+	
 	var height = width * 0.642;
 
 	var projection = d3.geo.albers().scale(width * 1.357).translate([width / 2, height / 2]);
 
-	var path = d3.geo.path().projection(projection).pointRadius(1.5);
+	var path = d3.geo.path().projection(projection);
 
 	var svg = d3.select("#geography").append("svg").style("width", width).style("height", height);
 	
-	$(window).on('resize', resize1);
-	
-	queue().defer(d3.json, "assets/data/us.json").defer(d3.json, "assets/data/lived.json").await(ready);
-
-		function ready(error, us, lived) {
-			svg.append("path").datum(topojson.feature(us, us.objects.land)).attr("class", "land").attr("d", path);
+	d3.json("assets/data/map.json", function ready(error, us) {
 			
-			svg.append("path").datum(topojson.mesh(us, us.objects.states, function(a, b) {
-				return a !== b;
-			})).attr("class", "states").attr("d", path);
-			
-			svg.append("path").datum(topojson.feature(lived, lived.objects.lived)).attr("class", "points").attr("d", path);
-			
-			svg.append("path")
-			    .datum({type: "LineString", coordinates: [[-76.285, 36.850], [-80.469, 36.386], [-94.598,35.406], [-97.439,35.222]]})
-			    .attr("class", "livedarc")
-			    .attr("d", path);
+		svg.append("path")
+			.datum(topojson.feature(us, us.objects.land))
+			.attr("class", "land")
+			.attr("d", path);
+		
+		svg.append("path")
+			.datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+			.attr("class", "states")
+			.attr("d", path);
+		
+		svg.append("path")
+			.datum(topojson.feature(us, us.objects.lived))
+			.attr("class", "points")
+			.attr("d", path)
+			.style("stroke-width", (width * .0017));
+		
+		svg.append("path")
+			.datum({type: "LineString", coordinates: [[-76.285, 36.850], [-80.469, 36.386], [-94.598,35.406], [-97.439,35.222]]})
+		    .attr("class", "livedarc")
+		    .attr("d", path)
+		    .style("stroke-width", (width * .005));
 			   
-	};
+	});
 
 	var margin = {
 		top : 20,
@@ -129,8 +114,6 @@ if ($('#data').length > 0){
 	var y1 = d3.scale.linear();
 
 	var x1 = d3.scale.ordinal().rangeRoundBands([0, width *.90], .1, 0);
-	//
-	// var xAxis = d3.svg.axis().scale(x).orient("bottom").tickFormat(formatDate);
 
 	var nest = d3.nest().key(function(d) {
 		return d.group;
@@ -258,21 +241,22 @@ if ($('#data').length > 0){
 	});
 	
 	function resize1() {
-	   width = parseInt(d3.select('#geography').style('width'));
-		    height = width * .642;
-		
-		    projection
-		        .translate([width / 2, height / 2])
-		        .scale(width * 1.357);
-		
-		    svg
-		        .style('width', width + 'px')
-		        .style('height', height + 'px');
-		
-		    svg.selectAll('.land').attr('d', path);
-		    svg.selectAll('.states').attr('d', path);
-		    svg.selectAll('.points').attr('d', path);
-		    svg.selectAll('.livedarc').attr('d', path);
+	   		
+		width = parseInt($('#container').css('width'));
+	    height = width * .642;
+	    height1 = width * .71;
+	
+	    projection.translate([width / 2, height / 2]).scale(width * 1.357);
+	
+	    svg.style('width', width).style('height', height);
+	
+	    svg.selectAll('.land').attr('d', path);
+	    svg.selectAll('.states').attr('d', path);
+	    svg.selectAll('.points').attr('d', path).style("stroke-width", (width * .0001));
+	    svg.selectAll('.livedarc').attr('d', path).style("stroke-width", (width * .005));
+	    
+	    svg1.style("width", width).style("height", height1);
+	    //svg1.selectAll('.dot').
 
 	}
 	
@@ -282,10 +266,7 @@ if ($('#data').length > 0){
 if ($('#pienav').length > 0){
 	
     var height = Math.min(width, 600),
-    radius = Math.min(width, height) / 2;
-
-	//var color = d3.scale.ordinal()
-	  //  .range(["#00A0B0", "#8EB4EF", "#EDC951"]);
+    	radius = Math.min(width, height) / 2;
 	
 	var arc = d3.svg.arc()
 	    .outerRadius(radius - 10)
@@ -295,9 +276,11 @@ if ($('#pienav').length > 0){
 	    .sort(null)
 	    .value(function(d) { return d.percent; });
 	
-	var svg = d3.select("#pienav").append("svg")
+	var svg = d3.select("#pienav")
+		.append("svg")
 	    .style("width", width + "px")
-	    .style("height", height + "px").append("g")
+	    .style("height", height + "px")
+	    .append("g")
 	    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 	    
 	$(window).on('resize', resize);
@@ -316,7 +299,6 @@ if ($('#pienav').length > 0){
 	  g.append("path")
 	      .attr("d", arc)
 	      .attr("id", function(d) { return d.data.id; })
-	      //.style("fill", function(d) { return color(d.data.id); })
 	      .style("stroke", "white");
 	
 	  g.append("text")
@@ -328,23 +310,27 @@ if ($('#pienav').length > 0){
 	});
 	
 	function resize() {
-	    width = parseInt(d3.select('#pienav').style('width'));
-	    height = Math.min(width, 600);
+	
+		width = parseInt($('#container').css('width'));
+		height = Math.min(width, 600);
 		radius = Math.min(width, height) / 2;
 		
 		d3.select('svg')
-	        .style('width', width + 'px')
-	        .style('height', height + 'px');
+			.style('width', width + 'px')
+			.style('height', height + 'px');
 	        
-	        svg.style('width', width + 'px')
-	        .style('height', height + 'px')
-	        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-	
-	    arc
-	        .outerRadius(radius - 10);
+	    svg.style('width', width + 'px')
+	    	.style('height', height + 'px')
+	    	.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+		
+		arc.outerRadius(radius - 10);
 	        
-	    g.selectAll('path').attr('d', arc);
-	    g.selectAll('text').attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+	    g.selectAll('path')
+	    	.attr('d', arc);
+	    	
+	    g.selectAll('text')
+	    	.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; });
+	    
 	}
 	
 }
