@@ -497,85 +497,83 @@ path {
 .livedarc {
   fill: none;
   stroke: #f2d129;
-  stroke-width: 5px;
   stroke-linecap: round;
 }
 
-/* line 154, ../sass/screen.scss */
+/* line 153, ../sass/screen.scss */
 .points {
   stroke: #f2d129;
   fill: #f2d129;
-  stroke-width: 7px;
 }
 
-/* line 160, ../sass/screen.scss */
+/* line 158, ../sass/screen.scss */
 .dot {
   stroke: #000;
 }
 
-/* line 164, ../sass/screen.scss */
+/* line 162, ../sass/screen.scss */
 .axis path, .axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
 
-/* line 170, ../sass/screen.scss */
+/* line 168, ../sass/screen.scss */
 #mobilelegend {
   display: none;
 }
-/* line 172, ../sass/screen.scss */
+/* line 170, ../sass/screen.scss */
 #mobilelegend #javascript {
   color: #1f77b4;
 }
-/* line 175, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 #mobilelegend #java {
   color: #ffbb78;
 }
-/* line 178, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 #mobilelegend #d3 {
   color: #aec7e8;
 }
-/* line 181, ../sass/screen.scss */
+/* line 179, ../sass/screen.scss */
 #mobilelegend #csharp {
   color: #ff7f0e;
 }
-/* line 184, ../sass/screen.scss */
+/* line 182, ../sass/screen.scss */
 #mobilelegend #objectivec {
   color: #2ca02c;
 }
-/* line 187, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 #mobilelegend #php {
   color: #98df8a;
 }
-/* line 190, ../sass/screen.scss */
+/* line 188, ../sass/screen.scss */
 #mobilelegend #html {
   color: #d62728;
 }
-/* line 193, ../sass/screen.scss */
+/* line 191, ../sass/screen.scss */
 #mobilelegend #css {
   color: #ff9896;
 }
-/* line 196, ../sass/screen.scss */
+/* line 194, ../sass/screen.scss */
 #mobilelegend #python {
   color: #9467bd;
 }
-/* line 199, ../sass/screen.scss */
+/* line 197, ../sass/screen.scss */
 #mobilelegend #adobe {
   color: #c5b0d5;
 }
-/* line 202, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 #mobilelegend #coffeescript {
   color: #8c564b;
 }
 
-/* line 207, ../sass/screen.scss */
+/* line 205, ../sass/screen.scss */
 label {
   margin-left: .5em;
 }
 
 /* programming */
-/* line 213, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 .programmingimage img {
   width: 82.85714%;
   float: left;
@@ -586,13 +584,13 @@ label {
   margin-bottom: 2em;
 }
 
-/* line 220, ../sass/screen.scss */
+/* line 218, ../sass/screen.scss */
 article {
   margin-top: 3em;
 }
 
 /* links */
-/* line 225, ../sass/screen.scss */
+/* line 223, ../sass/screen.scss */
 a {
   color: #645e8c;
   text-decoration: none;
@@ -616,7 +614,7 @@ a:active {
 
 /* responsive */
 @media (max-width: 775px) {
-  /* line 235, ../sass/screen.scss */
+  /* line 233, ../sass/screen.scss */
   #vinyl > div > img {
     width: 48.57143%;
     float: right;
@@ -626,7 +624,7 @@ a:active {
     margin-bottom: 0;
   }
 
-  /* line 242, ../sass/screen.scss */
+  /* line 240, ../sass/screen.scss */
   #ou > img, #staplegun > img {
     width: 31.42857%;
     float: left;
@@ -636,22 +634,22 @@ a:active {
     margin-right: 34.28571%;
   }
 
-  /* line 247, ../sass/screen.scss */
+  /* line 245, ../sass/screen.scss */
   #weeksection {
     display: none;
   }
 
-  /* line 250, ../sass/screen.scss */
+  /* line 248, ../sass/screen.scss */
   .legend {
     display: none;
   }
 
-  /* line 253, ../sass/screen.scss */
+  /* line 251, ../sass/screen.scss */
   #mobilelegend {
     display: block;
   }
 
-  /* line 257, ../sass/screen.scss */
+  /* line 255, ../sass/screen.scss */
   .programmingimage img {
     width: 100%;
     float: left;
@@ -663,7 +661,7 @@ a:active {
   }
 }
 @media (max-width: 480px) {
-  /* line 268, ../sass/screen.scss */
+  /* line 266, ../sass/screen.scss */
   #vinyl > div > img {
     width: 100%;
     float: left;
@@ -671,26 +669,26 @@ a:active {
     display: inline;
   }
 
-  /* line 275, ../sass/screen.scss */
+  /* line 273, ../sass/screen.scss */
   #social > ul > li {
     width: 48.57143%;
     float: left;
     margin-right: 2.85714%;
     display: inline;
   }
-  /* line 277, ../sass/screen.scss */
+  /* line 275, ../sass/screen.scss */
   #social > ul > li:nth-child(2) {
     float: right;
     margin-right: 0;
     *margin-left: -1.5em;
     display: inline;
   }
-  /* line 280, ../sass/screen.scss */
+  /* line 278, ../sass/screen.scss */
   #social > ul > li:nth-child(4) {
     padding-bottom: .5em;
   }
 
-  /* line 287, ../sass/screen.scss */
+  /* line 285, ../sass/screen.scss */
   #ou > img, #staplegun > img {
     width: 48.57143%;
     float: left;
@@ -700,7 +698,7 @@ a:active {
     margin-right: 25.71429%;
   }
 
-  /* line 293, ../sass/screen.scss */
+  /* line 291, ../sass/screen.scss */
   #biopic > img {
     width: 100%;
     float: right;
@@ -709,12 +707,12 @@ a:active {
     display: inline;
   }
 
-  /* line 297, ../sass/screen.scss */
+  /* line 295, ../sass/screen.scss */
   h3 {
     text-align: center;
   }
 
-  /* line 301, ../sass/screen.scss */
+  /* line 299, ../sass/screen.scss */
   .programmingimage img {
     width: 100%;
     float: left;
