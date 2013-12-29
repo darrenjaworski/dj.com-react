@@ -229,8 +229,29 @@ a	{
 	#vinyl	{
 		> div	{
 			> img	{
-				@include span-columns(6 omega, 12);
-				margin-bottom: 0;
+				@include span-columns(4, 12);
+			}
+			&:nth-child(3n)	{
+				> img{
+					@include omega;
+				}		
+			}
+		}
+	}
+	#vinyl	{
+		> div	{
+			> img	{
+				@include span-columns(6, 12);
+			}
+			&:nth-child(3n)	{
+				> img{
+					@include remove-omega;
+				}		
+			}
+			&:nth-child(2n)	{
+				> img{
+					@include omega;
+				}		
 			}
 		}
 	}
