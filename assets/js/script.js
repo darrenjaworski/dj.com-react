@@ -4,9 +4,9 @@ var width = parseInt($('#container').css('width'));
 
 /* data page */
 if ($('#data').length > 0){
-	
+
 	$(window).on('resize', resize1);
-	
+
 	var height = width * 0.642;
 
 	var projection = d3.geo.albers().scale(width * 1.357).translate([width / 2, height / 2]);
@@ -14,31 +14,31 @@ if ($('#data').length > 0){
 	var path = d3.geo.path().projection(projection);
 
 	var svg = d3.select("#geography").append("svg").style("width", width).style("height", height);
-	
+
 	d3.json("assets/data/map.json", function ready(error, us) {
-			
+
 		svg.append("path")
 			.datum(topojson.feature(us, us.objects.land))
 			.attr("class", "land")
 			.attr("d", path);
-		
+
 		svg.append("path")
 			.datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
 			.attr("class", "states")
 			.attr("d", path);
-		
+
 		svg.append("path")
 			.datum(topojson.feature(us, us.objects.lived))
 			.attr("class", "points")
 			.attr("d", path)
 			.style("stroke-width", (width * .0017));
-		
+
 		svg.append("path")
 			.datum({type: "LineString", coordinates: [[-76.285, 36.850], [-80.469, 36.386], [-94.598,35.406], [-97.439,35.222]]})
 		    .attr("class", "livedarc")
 		    .attr("d", path)
 		    .style("stroke-width", (width * .005));
-			   
+
 	});
 
 	var margin = {
@@ -95,7 +95,7 @@ if ($('#data').length > 0){
 
 		legend.append("text").attr("x", width).attr("y", 9).attr("dy", ".35em").style("text-anchor", "end").text(function(d) {
 			return d;
-		
+
 		});
 
 	});
@@ -239,100 +239,102 @@ if ($('#data').length > 0){
 		}
 
 	});
-	
+
 	function resize1() {
-	   		
+
 		width = parseInt($('#container').css('width'));
 	    height = width * .642;
 	    height1 = width * .71;
-	
+
 	    projection.translate([width / 2, height / 2]).scale(width * 1.357);
-	
+
 	    svg.style('width', width).style('height', height);
-	
+
 	    svg.selectAll('.land').attr('d', path);
 	    svg.selectAll('.states').attr('d', path);
 	    svg.selectAll('.points').attr('d', path).style("stroke-width", (width * .0001));
 	    svg.selectAll('.livedarc').attr('d', path).style("stroke-width", (width * .005));
-	    
-	    svg1.style("width", width).style("height", height1);
+
+      $('#week svg').css("width", width).css("height", height);
+      $('#skills svg').css("width", width).css("height", height);
+	    //svg1.style("width", width).style("height", height1);
 	    //svg1.selectAll('.dot').
 
 	}
-	
-} 
+
+}
 
 /* home page */
 if ($('#pienav').length > 0){
-	
+
     var height = Math.min(width, 600),
     	radius = Math.min(width, height) / 2;
-	
+
 	var arc = d3.svg.arc()
 	    .outerRadius(radius - 10)
 	    .innerRadius(0);
-	
+
 	var pie = d3.layout.pie()
 	    .sort(null)
 	    .value(function(d) { return d.percent; });
-	
+
 	var svg = d3.select("#pienav")
 		.append("svg")
 	    .style("width", width + "px")
 	    .style("height", height + "px")
 	    .append("g")
 	    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-	    
+
 	$(window).on('resize', resize);
-	
+
 	var g;
-	
+
 	d3.csv("assets/data/index.csv", function(error, data) {
-	
+
 	  g = svg.selectAll(".arc")
 	      .data(pie(data))
 	      .enter().append("a")
 	      .attr("xlink:href", function(d){return d.data.url;})
 	      .append("g")
 	      .attr("class", "arc");
-	
+
 	  g.append("path")
 	      .attr("d", arc)
 	      .attr("id", function(d) { return d.data.id; })
 	      .style("stroke", "white");
-	
+
 	  g.append("text")
 	      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
 	      .attr("dy", ".35em")
 	      .style("text-anchor", "middle")
 	      .text(function(d) { return d.data.id; });
-	
+
 	});
-	
+
 	function resize() {
-	
+
 		width = parseInt($('#container').css('width'));
 		height = Math.min(width, 600);
 		radius = Math.min(width, height) / 2;
-		
+
 		d3.select('svg')
 			.style('width', width + 'px')
 			.style('height', height + 'px');
-	        
+
 	    svg.style('width', width + 'px')
 	    	.style('height', height + 'px')
 	    	.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-		
+
 		arc.outerRadius(radius - 10);
-	        
+
 	    g.selectAll('path')
 	    	.attr('d', arc);
-	    	
+
 	    g.selectAll('text')
 	    	.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; });
-	    
+
 	}
-	
+
 }
-		
+
 });
