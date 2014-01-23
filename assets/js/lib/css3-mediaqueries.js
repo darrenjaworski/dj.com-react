@@ -776,4 +776,8 @@ document.execCommand("BackgroundImageCache",false,true);
 }
 catch(e){
 }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> dev-branch

@@ -14,9 +14,7 @@ $grid-padding	:	1em;
 /* End SUSY Grid */
 
 @import "partials/normalize"; 
-@import "partials/utilities"; 
-@import "partials/layout";
-@import "partials/navigation"; 
+@import "partials/utilities";
 
 $datacolor: #658f85;
 $porfoliocolor: #f2d129;
@@ -231,8 +229,29 @@ a	{
 	#vinyl	{
 		> div	{
 			> img	{
-				@include span-columns(6 omega, 12);
-				margin-bottom: 0;
+				@include span-columns(4, 12);
+			}
+			&:nth-child(3n)	{
+				> img{
+					@include omega;
+				}		
+			}
+		}
+	}
+	#vinyl	{
+		> div	{
+			> img	{
+				@include span-columns(6, 12);
+			}
+			&:nth-child(3n)	{
+				> img{
+					@include remove-omega;
+				}		
+			}
+			&:nth-child(2n)	{
+				> img{
+					@include omega;
+				}		
 			}
 		}
 	}
