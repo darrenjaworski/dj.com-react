@@ -749,3 +749,32 @@ a:active {
     margin-bottom: 2em;
   }
 }
+/* line 327, ../sass/screen.scss */
+#hovernav {
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  z-index: -1;
+  width: 25%;
+  font-size: .5em;
+}
+/* line 334, ../sass/screen.scss */
+#hovernav a {
+  color: #645e8c;
+}
+/* line 18, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#hovernav a:visited {
+  color: #645e8c;
+}
+/* line 21, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#hovernav a:focus {
+  color: #645e8c;
+}
+/* line 24, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#hovernav a:hover {
+  color: #d9435f;
+}
+/* line 27, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#hovernav a:active {
+  color: #645e8c;
+}

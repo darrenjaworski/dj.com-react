@@ -324,3 +324,15 @@ a	{
 	
 }
 
+#hovernav {
+	position: absolute;
+	left: 30%;
+	top: 30%;
+	z-index: -1;
+	width: 25%;
+	font-size: .5em;
+	a {
+		@include link-colors($purplecontrast, $redcontrast, $purplecontrast, $purplecontrast, $purplecontrast);
+	}
+}
+
