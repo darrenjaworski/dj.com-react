@@ -752,10 +752,10 @@ a:active {
 /* line 327, ../sass/screen.scss */
 #hovernav {
   position: absolute;
-  left: 30%;
-  top: 30%;
+  left: 45%;
+  top: 15em;
   z-index: -1;
-  width: 25%;
+  width: 75px;
   font-size: .5em;
 }
 /* line 334, ../sass/screen.scss */

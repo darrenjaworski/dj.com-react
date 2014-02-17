@@ -10,10 +10,10 @@
 $total-columns 	:	12;
 $column-width	:	3em;
 $gutter-width	:	1.5em;
-$grid-padding	:	1em; 
+$grid-padding	:	1em;
 /* End SUSY Grid */
 
-@import "partials/normalize"; 
+@import "partials/normalize";
 @import "partials/utilities";
 
 $datacolor: #658f85;
@@ -23,7 +23,7 @@ $redcontrast: #d9435f;
 $purplecontrast: #645e8c;
 
 
-/* sitewide */ 
+/* sitewide */
 
 html	{
 	font-family: "Lucida Grande";
@@ -46,7 +46,7 @@ footer	{
 	p {
 		@include omega;
 		color: #B6B6B6;
-	} 
+	}
 }
 h3	{
 	text-align: left;
@@ -82,7 +82,7 @@ h3	{
 		&:nth-child(3n)	{
 			> img{
 				@include omega;
-			}		
+			}
 		}
 	}
 }
@@ -234,7 +234,7 @@ a	{
 			&:nth-child(3n)	{
 				> img{
 					@include omega;
-				}		
+				}
 			}
 		}
 	}
@@ -246,12 +246,12 @@ a	{
 			&:nth-child(3n)	{
 				> img{
 					@include remove-omega;
-				}		
+				}
 			}
 			&:nth-child(2n)	{
 				> img{
 					@include omega;
-				}		
+				}
 			}
 		}
 	}
@@ -284,7 +284,7 @@ a	{
 		> div	{
 			> img	{
 				@include span-columns(12, 12);
-			}	
+			}
 		}
 	}
 	#social	{
@@ -321,15 +321,15 @@ a	{
 			margin-bottom: 2em;
 		}
 	}
-	
+
 }
 
 #hovernav {
 	position: absolute;
-	left: 30%;
-	top: 30%;
+	left: 45%;
+	top: 15em;
 	z-index: -1;
-	width: 25%;
+	width: 75px;
 	font-size: .5em;
 	a {
 		@include link-colors($purplecontrast, $redcontrast, $purplecontrast, $purplecontrast, $purplecontrast);
