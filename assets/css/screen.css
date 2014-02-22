@@ -482,98 +482,103 @@ path {
   stroke-linejoin: round;
 }
 
-/* line 136, ../sass/screen.scss */
-.land {
-  fill: #658f85;
-}
-
-/* line 140, ../sass/screen.scss */
+/* .land {
+	fill: $datacolor;
+  stroke: #fff;
+} */
+/* line 141, ../sass/screen.scss */
 .states {
-  fill: none;
+  fill: #658f85;
   stroke: #fff;
 }
 
 /* line 145, ../sass/screen.scss */
+.states-borders {
+  fill: #658f85;
+  stroke: #fff;
+}
+
+/* line 150, ../sass/screen.scss */
 .livedarc {
   fill: none;
   stroke: #f2d129;
   stroke-linecap: round;
 }
 
-/* line 151, ../sass/screen.scss */
+/* line 156, ../sass/screen.scss */
 .points {
   stroke: #f2d129;
   fill: #f2d129;
 }
 
-/* line 156, ../sass/screen.scss */
+/* line 161, ../sass/screen.scss */
 .dot {
   stroke: #000;
 }
 
-/* line 160, ../sass/screen.scss */
+/* line 165, ../sass/screen.scss */
 .axis path, .axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
 
-/* line 166, ../sass/screen.scss */
+/* line 171, ../sass/screen.scss */
 #mobilelegend {
   display: none;
 }
-/* line 168, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 #mobilelegend #javascript {
   color: #1f77b4;
 }
-/* line 171, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 #mobilelegend #java {
   color: #ffbb78;
 }
-/* line 174, ../sass/screen.scss */
+/* line 179, ../sass/screen.scss */
 #mobilelegend #d3 {
   color: #aec7e8;
 }
-/* line 177, ../sass/screen.scss */
+/* line 182, ../sass/screen.scss */
 #mobilelegend #csharp {
   color: #ff7f0e;
 }
-/* line 180, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 #mobilelegend #objectivec {
   color: #2ca02c;
 }
-/* line 183, ../sass/screen.scss */
+/* line 188, ../sass/screen.scss */
 #mobilelegend #php {
   color: #98df8a;
 }
-/* line 186, ../sass/screen.scss */
+/* line 191, ../sass/screen.scss */
 #mobilelegend #html {
   color: #d62728;
 }
-/* line 189, ../sass/screen.scss */
+/* line 194, ../sass/screen.scss */
 #mobilelegend #css {
   color: #ff9896;
 }
-/* line 192, ../sass/screen.scss */
+/* line 197, ../sass/screen.scss */
 #mobilelegend #python {
   color: #9467bd;
 }
-/* line 195, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 #mobilelegend #adobe {
   color: #c5b0d5;
 }
-/* line 198, ../sass/screen.scss */
+/* line 203, ../sass/screen.scss */
 #mobilelegend #coffeescript {
   color: #8c564b;
 }
 
-/* line 203, ../sass/screen.scss */
+/* line 208, ../sass/screen.scss */
 label {
   margin-left: .5em;
 }
 
 /* programming */
-/* line 209, ../sass/screen.scss */
+/* line 214, ../sass/screen.scss */
 .programmingimage img {
   width: 82.85714%;
   float: left;
@@ -584,13 +589,13 @@ label {
   margin-bottom: 2em;
 }
 
-/* line 216, ../sass/screen.scss */
+/* line 221, ../sass/screen.scss */
 article {
   margin-top: 3em;
 }
 
 /* links */
-/* line 221, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 a {
   color: #645e8c;
   text-decoration: none;
@@ -614,14 +619,14 @@ a:active {
 
 /* responsive */
 @media (max-width: 775px) {
-  /* line 231, ../sass/screen.scss */
+  /* line 236, ../sass/screen.scss */
   #vinyl > div > img {
     width: 31.42857%;
     float: left;
     margin-right: 2.85714%;
     display: inline;
   }
-  /* line 235, ../sass/screen.scss */
+  /* line 240, ../sass/screen.scss */
   #vinyl > div:nth-child(3n) > img {
     float: right;
     margin-right: 0;
@@ -629,20 +634,20 @@ a:active {
     display: inline;
   }
 
-  /* line 243, ../sass/screen.scss */
+  /* line 248, ../sass/screen.scss */
   #vinyl > div > img {
     width: 48.57143%;
     float: left;
     margin-right: 2.85714%;
     display: inline;
   }
-  /* line 247, ../sass/screen.scss */
+  /* line 252, ../sass/screen.scss */
   #vinyl > div:nth-child(3n) > img {
     float: left;
     margin-right: 2.85714%;
     *margin-left: auto;
   }
-  /* line 252, ../sass/screen.scss */
+  /* line 257, ../sass/screen.scss */
   #vinyl > div:nth-child(2n) > img {
     float: right;
     margin-right: 0;
@@ -650,7 +655,7 @@ a:active {
     display: inline;
   }
 
-  /* line 259, ../sass/screen.scss */
+  /* line 264, ../sass/screen.scss */
   #ou > img, #staplegun > img {
     width: 31.42857%;
     float: left;
@@ -660,22 +665,22 @@ a:active {
     margin-right: 34.28571%;
   }
 
-  /* line 264, ../sass/screen.scss */
+  /* line 269, ../sass/screen.scss */
   #weeksection {
     display: none;
   }
 
-  /* line 267, ../sass/screen.scss */
+  /* line 272, ../sass/screen.scss */
   .legend {
     display: none;
   }
 
-  /* line 270, ../sass/screen.scss */
+  /* line 275, ../sass/screen.scss */
   #mobilelegend {
     display: block;
   }
 
-  /* line 274, ../sass/screen.scss */
+  /* line 279, ../sass/screen.scss */
   .programmingimage img {
     width: 100%;
     float: left;
@@ -687,7 +692,7 @@ a:active {
   }
 }
 @media (max-width: 480px) {
-  /* line 285, ../sass/screen.scss */
+  /* line 290, ../sass/screen.scss */
   #vinyl > div > img {
     width: 100%;
     float: left;
@@ -695,26 +700,26 @@ a:active {
     display: inline;
   }
 
-  /* line 292, ../sass/screen.scss */
+  /* line 297, ../sass/screen.scss */
   #social > ul > li {
     width: 48.57143%;
     float: left;
     margin-right: 2.85714%;
     display: inline;
   }
-  /* line 294, ../sass/screen.scss */
+  /* line 299, ../sass/screen.scss */
   #social > ul > li:nth-child(2) {
     float: right;
     margin-right: 0;
     *margin-left: -1.5em;
     display: inline;
   }
-  /* line 297, ../sass/screen.scss */
+  /* line 302, ../sass/screen.scss */
   #social > ul > li:nth-child(4) {
     padding-bottom: .5em;
   }
 
-  /* line 304, ../sass/screen.scss */
+  /* line 309, ../sass/screen.scss */
   #ou > img, #staplegun > img {
     width: 48.57143%;
     float: left;
@@ -724,7 +729,7 @@ a:active {
     margin-right: 25.71429%;
   }
 
-  /* line 310, ../sass/screen.scss */
+  /* line 315, ../sass/screen.scss */
   #biopic > img {
     width: 100%;
     float: right;
@@ -733,12 +738,12 @@ a:active {
     display: inline;
   }
 
-  /* line 314, ../sass/screen.scss */
+  /* line 319, ../sass/screen.scss */
   h3 {
     text-align: center;
   }
 
-  /* line 318, ../sass/screen.scss */
+  /* line 323, ../sass/screen.scss */
   .programmingimage img {
     width: 100%;
     float: left;
@@ -749,7 +754,7 @@ a:active {
     margin-bottom: 2em;
   }
 }
-/* line 327, ../sass/screen.scss */
+/* line 332, ../sass/screen.scss */
 #hovernav {
   position: absolute;
   left: 45%;
@@ -758,7 +763,7 @@ a:active {
   width: 75px;
   font-size: .5em;
 }
-/* line 334, ../sass/screen.scss */
+/* line 339, ../sass/screen.scss */
 #hovernav a {
   color: #645e8c;
 }

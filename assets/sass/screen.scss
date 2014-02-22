@@ -133,13 +133,18 @@ path {
 	stroke-linejoin: round;
 }
 
-.land {
+/* .land {
 	fill: $datacolor;
-}
+  stroke: #fff;
+} */
 
 .states {
-	fill: none;
-	stroke: #fff;
+	fill: $datacolor;
+  stroke: #fff;
+}
+.states-borders {
+  fill: $datacolor;
+  stroke: #fff;
 }
 
 .livedarc {
