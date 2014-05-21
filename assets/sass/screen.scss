@@ -6,7 +6,7 @@
 @import "compass/typography/links";
 
 /*Start SUSY Grid */
-@import "susy";
+@import "susyone";
 $total-columns 	:	12;
 $column-width	:	3em;
 $gutter-width	:	1.5em;
@@ -16,17 +16,19 @@ $grid-padding	:	1em;
 @import "partials/normalize";
 @import "partials/utilities";
 
-$datacolor: #658f85;
-$porfoliocolor: #f2d129;
-$programmingcolor: #d9cd8f;
-$redcontrast: #d9435f;
-$purplecontrast: #645e8c;
+$datacolor: #1B808C;
+$porfoliocolor: #F3F1BC;
+$programmingcolor: #31A6A8;
+$redcontrast: #1B808C;
+$purplecontrast: #035C75;
 
 
 /* sitewide */
 
-html	{
+html, body	{
 	font-family: "Lucida Grande";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 #container	{
