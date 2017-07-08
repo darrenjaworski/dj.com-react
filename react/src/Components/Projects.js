@@ -5,6 +5,8 @@ class Projects extends Component {
     return (
       <main>
         <h1>projects</h1>
+        <h2><a href="https://github.com/darrenjaworski/d3-reusable">D3Re</a></h2>
+        <p>A small D3 reusable charts library. Basically I'm working to add some missing .chart() functions in the D3 library.</p>
         <h2><a href="https://github.com/darrenjaworski/js-algorithms/">JS algorithms</a></h2>
         <p>Working through <a href="http://algs4.cs.princeton.edu/home/">Algorithms, 4th edition</a> and <a href="https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844">Introduction to Algorithms, 3rd edition</a> using Javascript and teaching
           myself all the CS I don't work on in my day job. I'm thinking of expanding this and recreating the data structures and algorithms in Java and Python as well.</p>
