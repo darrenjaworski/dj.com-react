@@ -2,39 +2,6 @@ html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-}
-
-header,
-nav {
-  display: block;
-}
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-main {
-  display: block;
-}
-
-a {
-  background-color: transparent;
-  -webkit-text-decoration-skip: objects;
-}
-
-img {
-  border-style: none;
-}
-
-html {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -43,8 +10,27 @@ html {
   font-size: 100%;
   color: #304371;
 }
+body {
+  margin: 0;
+}
+header,
+nav {
+  display: block;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+main {
+  display: block;
+}
 a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
   color: #5883a7;
+}
+img {
+  border-style: none;
 }
 a:hover {
   color: #466986;

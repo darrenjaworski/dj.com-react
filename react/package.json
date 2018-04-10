@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "deploy": "yarn run build && aws s3 sync ./build s3://darrenjaworski.com --delete --acl public-read --profile personal",
+    "deploy":
+      "yarn run build && aws s3 sync ./build s3://darrenjaworski.com --delete --acl public-read",
     "eject": "react-scripts eject"
   }
 }
