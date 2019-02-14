@@ -15,10 +15,10 @@ class Projects extends Component {
       );
     });
     return (
-      <main>
+      <>
         <h1>projects</h1>
         {projects}
-      </main>
+      </>
     );
   }
 }

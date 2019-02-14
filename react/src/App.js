@@ -11,33 +11,27 @@ import Projects from "./Components/Projects";
 import Journalism from "./Components/Journalism";
 import FourOhFour from "./Components/404.js";
 
-import "./App.css";
-
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <>
           <header>
-            <nav id="navigation" className="nav">
-              <NavLink to="/" exact activeClassName="active">
-                home
-              </NavLink>
-              <NavLink to="/projects" activeClassName="active">
-                projects
-              </NavLink>
-              <NavLink to="/journalism" activeClassName="active">
-                journalism
-              </NavLink>
+            <nav id="navigation">
+              <NavLink to="/">home</NavLink>
+              <NavLink to="/projects">projects</NavLink>
+              <NavLink to="/journalism">journalism</NavLink>
             </nav>
           </header>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/projects" component={Projects} />
-            <Route path="/journalism" component={Journalism} />
-            <Route component={FourOhFour} />
-          </Switch>
-        </div>
+          <main>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/projects" component={Projects} />
+              <Route path="/journalism" component={Journalism} />
+              <Route component={FourOhFour} />
+            </Switch>
+          </main>
+        </>
       </Router>
     );
   }

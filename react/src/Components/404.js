@@ -22,12 +22,12 @@ class Home extends Component {
   }
   render() {
     return (
-      <main>
+      <>
         <h1>
           Human sacrifice, dogs and cats living together... mass hysteria!
         </h1>
         <img src={this.state.billurl} alt="Bill Murray." />
-      </main>
+      </>
     );
   }
 }

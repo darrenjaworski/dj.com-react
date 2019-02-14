@@ -20,10 +20,10 @@ class Journalism extends Component {
       );
     });
     return (
-      <main>
+      <>
         <h1>journalism</h1>
         {sections}
-      </main>
+      </>
     );
   }
 }
