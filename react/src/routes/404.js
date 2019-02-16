@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { Heading } from "../components/heading";
+
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -23,9 +25,9 @@ class Home extends Component {
   render() {
     return (
       <>
-        <h1>
+        <Heading>
           Human sacrifice, dogs and cats living together... mass hysteria!
-        </h1>
+        </Heading>
         <img src={this.state.billurl} alt="Bill Murray." />
       </>
     );
