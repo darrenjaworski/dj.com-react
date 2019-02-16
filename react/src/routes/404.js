@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import styled from "@emotion/styled";
 
 import { Heading } from "../components/heading";
+
+const StyledImage = styled.img`
+  width: 100%;
+`;
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -28,7 +33,7 @@ class Home extends Component {
         <Heading>
           Human sacrifice, dogs and cats living together... mass hysteria!
         </Heading>
-        <img src={this.state.billurl} alt="Bill Murray." />
+        <StyledImage src={this.state.billurl} alt="Bill Murray." />
       </>
     );
   }
