@@ -13,6 +13,7 @@ export const Heading = props => {
 
 const HeadingTwo = styled.h1`
   color: ${props => props.theme.color};
+  transition: color 0.5s;
   font-size: 1.5rem;
 `;
 

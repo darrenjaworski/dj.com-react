@@ -34,7 +34,7 @@ const Nav = styled.nav`
 
 const Toggle = styled.button`
   position: relative;
-  background: ${props => props.theme.bgColor};
+  background: transparent;
   color: ${props => props.theme.color};
   transition: all 0.5s;
   border: none;
@@ -71,6 +71,7 @@ class App extends React.Component {
     const toggleTheme = this.toggleTheme;
     const NavStyle = {
       color: `${themes[theme].linkColor}`,
+      transition: "color 0.5s",
       textDecoration: "underline",
       marginRight: "0.5rem",
       fontSize: "1.25rem"
