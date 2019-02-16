@@ -15,8 +15,9 @@ class Home extends Component {
           comment. Please send an email to{" "}
           <TextLink href="mailto:darrenjaworski@gmail.com">
             darrenjaworski@gmail.com
-          </TextLink>{" "}
-          . (Please allow 10-15 months for response.)
+          </TextLink>
+          {"."}
+          (Please allow 10-15 months for response.)
         </Paragraph>
         <Paragraph>
           Check out my past work in{" "}
@@ -59,6 +60,7 @@ class Home extends Component {
           </TextLink>
           .
         </Paragraph>
+        <Paragraph>Now with dark theme.</Paragraph>
       </>
     );
   }
