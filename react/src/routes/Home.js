@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 
 import { Heading } from "../components/heading";
 import Paragraph from "../components/paragraph";
 import { TextLink } from "../components/links";
 
-class Home extends Component {
+class Home extends React.Component {
   render() {
     return (
       <>
@@ -16,7 +16,7 @@ class Home extends Component {
           <TextLink href="mailto:darrenjaworski@gmail.com">
             darrenjaworski@gmail.com
           </TextLink>
-          {"."}
+          {". "}
           (Please allow 10-15 months for response.)
         </Paragraph>
         <Paragraph>

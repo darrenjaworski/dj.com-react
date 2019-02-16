@@ -41,11 +41,18 @@ const Toggle = styled.button`
   margin-top: 1rem;
 `;
 
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+}
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      theme: "dark"
+      theme: "dark",
+      image: undefined
     };
   }
 
@@ -54,6 +61,13 @@ class App extends React.Component {
     if (themeChoice) {
       this.setState({ theme: themeChoice });
     }
+    const width = getRandomIntInclusive(500, 720);
+    const height = getRandomIntInclusive(300, 600);
+    const url = `https://www.fillmurray.com/g/${width}/${height}`;
+
+    const image = new Image();
+    image.src = url;
+    this.setState({ image: url });
   }
 
   toggleTheme = () => {
@@ -67,7 +81,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { theme } = this.state;
+    const { theme, image } = this.state;
     const toggleTheme = this.toggleTheme;
     const NavStyle = {
       color: `${themes[theme].linkColor}`,
@@ -100,7 +114,7 @@ class App extends React.Component {
                   <Route exact path="/" component={Home} />
                   <Route path="/projects" component={Projects} />
                   <Route path="/journalism" component={Journalism} />
-                  <Route component={FourOhFour} />
+                  <Route component={() => <FourOhFour image={image} />} />
                 </Switch>
               </main>
               <Toggle onClick={toggleTheme}>

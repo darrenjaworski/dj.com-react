@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
 import projectData from "../data/projects.json";
 import { Heading, SmallHeading } from "../components/heading";
 import { TextLink } from "../components/links";
 import Paragraph from "../components/paragraph";
 
-class Projects extends Component {
+class Projects extends React.Component {
   render() {
     let projects = projectData.map(d => {
       return (

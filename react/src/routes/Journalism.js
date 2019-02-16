@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
 import journalismData from "../data/journalism.json";
 import { Heading, SmallHeading } from "../components/heading";
 import { TextLink } from "../components/links";
 import { ListItem, UnorderedList } from "../components/list";
 
-class Journalism extends Component {
+class Journalism extends React.Component {
   render() {
     let sections = journalismData.map(d => {
       let articles = d.articles.map(a => {
