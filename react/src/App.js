@@ -36,7 +36,7 @@ const Toggle = styled.button`
   position: relative;
   background: ${props => props.theme.bgColor};
   color: ${props => props.theme.color};
-  transition: all 0.3s;
+  transition: all 0.5s;
   border: none;
   margin-top: 1rem;
 `;
