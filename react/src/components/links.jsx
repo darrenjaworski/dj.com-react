@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const StyledLink = styled.a`
   color: ${props => props.theme.linkColor};
@@ -9,5 +10,11 @@ const StyledLink = styled.a`
 `;
 
 export const TextLink = props => {
-  return <StyledLink href={props.href}>{props.children}</StyledLink>;
+  return props.link ? (
+    <Link to={props.link}>
+      <StyledLink>{props.children}</StyledLink>
+    </Link>
+  ) : (
+    <StyledLink href={props.href}>{props.children}</StyledLink>
+  );
 };

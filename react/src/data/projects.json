@@ -1,5 +1,10 @@
 [
   {
+    "title": "byte-converter-react",
+    "link": "https://github.com/darrenjaworski/byte-converter-react",
+    "paragraph": "Small React component to convert bytes."
+  },
+  {
     "title": "D3re",
     "link": "https://github.com/darrenjaworski/d3-reusable",
     "paragraph": "A small D3 reusable charts library. Basically I'm working to add some missing .chart() functions in the D3 library."

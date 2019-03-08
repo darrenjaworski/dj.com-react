@@ -21,9 +21,9 @@ class Home extends React.Component {
         </Paragraph>
         <Paragraph>
           Check out my past work in{" "}
-          <TextLink href="/journalism">journalism</TextLink> and what I'm
+          <TextLink link="/journalism">journalism</TextLink> and what I'm
           currently hacking away at in{" "}
-          <TextLink href="/projects">projects</TextLink>.
+          <TextLink link="/projects">projects</TextLink>.
         </Paragraph>
         <Paragraph>
           As always you can find me on{" "}
