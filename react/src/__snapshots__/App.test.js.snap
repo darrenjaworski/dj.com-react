@@ -198,7 +198,7 @@ exports[`app renders without crashing 1`] = `
       </p>
     </main>
     <button
-      className="css-1i22e7o"
+      className="toggle css-1i22e7o"
       onClick={[Function]}
     >
       <svg

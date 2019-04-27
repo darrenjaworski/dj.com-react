@@ -117,7 +117,7 @@ class App extends React.Component {
                   <Route component={() => <FourOhFour image={image} />} />
                 </Switch>
               </main>
-              <Toggle onClick={toggleTheme}>
+              <Toggle className="toggle" onClick={toggleTheme}>
                 {theme === "dark" ? <Sun /> : <Moon />}
               </Toggle>
             </Container>

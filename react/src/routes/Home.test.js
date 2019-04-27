@@ -1,12 +1,18 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import Home from "./Hone";
+import { BrowserRouter as Router } from "react-router-dom";
+import Home from "./Home";
 
 describe("Home", () => {
-  const img = "https://www.fillmurray.com/g/400/400";
   it("renders without crashing", () => {
-    const tree = renderer.create(<Hone />).toJSON();
+    const tree = renderer
+      .create(
+        <Router>
+          <Home />
+        </Router>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

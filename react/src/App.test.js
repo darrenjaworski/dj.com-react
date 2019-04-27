@@ -17,5 +17,23 @@ describe("app", () => {
   it("should render with a dark background when in dark mode", () => {
     const wrapper = mount(<App />);
     wrapper.setState({ theme: "dark" });
+    expect(wrapper.state("theme")).toBe("dark");
+  });
+
+  it("should render with a light background when in light mode", () => {
+    const wrapper = mount(<App />);
+    wrapper.setState({ theme: "light" });
+    expect(wrapper.state("theme")).toBe("light");
+  });
+
+  it("should toggle between modes", () => {
+    const clickWrapper = mount(<App />);
+    const toggle = clickWrapper.find(".toggle");
+
+    toggle.simulate("click");
+    expect(clickWrapper.state.theme).toBe("light");
+
+    toggle.simulate("click");
+    expect(clickWrapper.state.theme).toBe("dark");
   });
 });
