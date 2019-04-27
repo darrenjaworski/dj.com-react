@@ -14,7 +14,7 @@ import { Sun, Moon } from "react-feather";
 import Home from "./routes/Home";
 import Projects from "./routes/Projects";
 import Journalism from "./routes/Journalism";
-import FourOhFour from "./routes/404.js";
+import FourOhFour from "./routes/404";
 
 const AppWrapper = styled.div`
   background: ${props => props.theme.bgColor};

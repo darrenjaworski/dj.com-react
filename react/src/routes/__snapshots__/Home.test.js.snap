@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FourOhFour renders without crashing 1`] = `
+Array [
+  <h1
+    className="css-lozscu"
+  >
+    Human sacrifice, dogs and cats living together... mass hysteria!
+  </h1>,
+  <img
+    alt="Bill Murray."
+    className="css-ks7ago"
+    src="https://www.fillmurray.com/g/400/400"
+  />,
+]
+`;
