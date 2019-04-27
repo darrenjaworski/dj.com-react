@@ -5,30 +5,28 @@ import { Heading, SmallHeading } from "../components/heading";
 import { TextLink } from "../components/links";
 import { ListItem, UnorderedList } from "../components/list";
 
-class Journalism extends React.Component {
-  render() {
-    let sections = journalismData.map(d => {
-      let articles = d.articles.map(a => {
-        return (
-          <ListItem>
-            <TextLink href={a.link}>{a.title}</TextLink>
-          </ListItem>
-        );
-      });
+const Journalism = () => {
+  let sections = journalismData.map(d => {
+    let articles = d.articles.map(a => {
       return (
-        <>
-          <SmallHeading>{d.section}</SmallHeading>
-          <UnorderedList>{articles}</UnorderedList>
-        </>
+        <ListItem key={a.title.replace(" ", "-")}>
+          <TextLink href={a.link}>{a.title}</TextLink>
+        </ListItem>
       );
     });
     return (
-      <>
-        <Heading>journalism</Heading>
-        {sections}
-      </>
+      <React.Fragment key={d.section.replace(" ", "-")}>
+        <SmallHeading>{d.section}</SmallHeading>
+        <UnorderedList>{articles}</UnorderedList>
+      </React.Fragment>
     );
-  }
-}
+  });
+  return (
+    <>
+      <Heading>journalism</Heading>
+      {sections}
+    </>
+  );
+};
 
 export default Journalism;

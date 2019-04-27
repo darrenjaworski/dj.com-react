@@ -1,5 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import { shallow, mount, render } from "enzyme";
 
 import App from "./App";
 
@@ -12,4 +13,9 @@ describe("app", () => {
   it("should be able to toggle light and dark mode", () => {});
 
   it("should store the theme mode in localstorage", () => {});
+
+  it("should render with a dark background when in dark mode", () => {
+    const wrapper = mount(<App />);
+    wrapper.setState({ theme: "dark" });
+  });
 });
