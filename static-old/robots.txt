@@ -1,4 +1,0 @@
-# robotstxt.org/
-# This allows crawling of all content.
-User-agent: *
-Disallow:
