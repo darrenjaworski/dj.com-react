@@ -6,7 +6,7 @@ const themes = {
   },
   light: {
     color: "#1F2430",
-    bgColor: "#F4EEEC",
+    bgColor: "#FFFDFC",
     linkColor: "#31394C"
   }
 };
