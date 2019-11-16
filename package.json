@@ -35,7 +35,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "test:e2e": "jest -c e2e/jest.config.js",
-    "deploy": "npm run build && aws s3 sync ./build s3://darrenjaworski.com --delete --acl public-read",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx --ignore-pattern *.test.js --fix"
   },
