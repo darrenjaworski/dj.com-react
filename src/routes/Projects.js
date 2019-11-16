@@ -1,21 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import projectData from "../data/projects.json";
-import { Heading, SmallHeading } from "../components/heading";
-import { TextLink } from "../components/links";
-import Paragraph from "../components/paragraph";
+import projectData from '../data/projects.json';
+import { Heading, SmallHeading } from '../components/heading';
+import { TextLink } from '../components/links';
+import Paragraph from '../components/paragraph';
 
 const Projects = () => {
-  let projects = projectData.map(d => {
-    return (
-      <React.Fragment key={d.title.replace(" ", "-")}>
-        <SmallHeading>
-          <TextLink href={d.link}>{d.title}</TextLink>
-        </SmallHeading>
-        <Paragraph>{d.paragraph}</Paragraph>
-      </React.Fragment>
-    );
-  });
+  const projects = projectData.map((d) => (
+    <React.Fragment key={d.title.replace(' ', '-')}>
+      <SmallHeading>
+        <TextLink href={d.link}>{d.title}</TextLink>
+      </SmallHeading>
+      <Paragraph>{d.paragraph}</Paragraph>
+    </React.Fragment>
+  ));
   return (
     <>
       <Heading>projects</Heading>

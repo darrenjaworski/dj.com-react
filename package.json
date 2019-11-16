@@ -34,7 +34,7 @@
     "test:e2e": "jest -c e2e/jest.config.js",
     "deploy": "npm run build && aws s3 sync ./build s3://darrenjaworski.com --delete --acl public-read",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js --ignore-pattern *.test.js"
+    "lint": "eslint src/**/*.js src/**/*.jsx --ignore-pattern *.test.js --fix"
   },
   "browserslist": [
     ">0.2%",
