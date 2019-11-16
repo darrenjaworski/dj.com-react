@@ -1,8 +1,9 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "@emotion/styled";
 
 const StyledListItem = styled.li`
-  color: ${(props) => props.theme.color};
+  color: ${props => props.theme.color};
   transition: color 0.5s;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -14,6 +15,18 @@ const StyledUnorderedList = styled.ul`
   margin: 0;
 `;
 
-export const ListItem = (props) => <StyledListItem>{props.children}</StyledListItem>;
+export const ListItem = ({ children }) => (
+  <StyledListItem>{children}</StyledListItem>
+);
 
-export const UnorderedList = (props) => <StyledUnorderedList>{props.children}</StyledUnorderedList>;
+ListItem.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
+export const UnorderedList = ({ children }) => (
+  <StyledUnorderedList>{children}</StyledUnorderedList>
+);
+
+UnorderedList.propTypes = {
+  children: PropTypes.node.isRequired
+};

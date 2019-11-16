@@ -10,9 +10,9 @@ const StyledLink = styled.a`
 `;
 
 export const TextLink = (props) => (props.link ? (
-  <Link to={props.link}>
-    <StyledLink>{props.children}</StyledLink>
-  </Link>
-) : (
-  <StyledLink href={props.href}>{props.children}</StyledLink>
-));
+    <Link to={props.link}>
+      <StyledLink>{props.children}</StyledLink>
+    </Link>
+  ) : (
+    <StyledLink href={props.href}>{props.children}</StyledLink>
+  );
