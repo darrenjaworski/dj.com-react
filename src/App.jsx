@@ -54,6 +54,8 @@ class App extends React.Component {
       theme: "dark",
       image: undefined,
     };
+
+    this.toggleTheme = this.toggleTheme.bind(this);
   }
 
   componentDidMount() {
