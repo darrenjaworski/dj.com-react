@@ -69,7 +69,7 @@ exports[`app renders without crashing 1`] = `
         home
       </h1>
       <p
-        className="css-dtn5f5"
+        className="css-1qkfgfn"
       >
         Welcome. This is my home on the web. I dramatically simplified the site and I hope that you like it. I'm always available for public comment. Please send an email to 
         <a
@@ -81,7 +81,7 @@ exports[`app renders without crashing 1`] = `
         . (Please allow 10-15 months for response.)
       </p>
       <p
-        className="css-dtn5f5"
+        className="css-1qkfgfn"
       >
         Check out my past work in 
         <a
@@ -108,7 +108,7 @@ exports[`app renders without crashing 1`] = `
         .
       </p>
       <p
-        className="css-dtn5f5"
+        className="css-1qkfgfn"
       >
         As always you can find me on 
         <a
@@ -169,7 +169,7 @@ exports[`app renders without crashing 1`] = `
         ... (I'm sure I'm missing others. You get the point. Troll away.)
       </p>
       <p
-        className="css-dtn5f5"
+        className="css-1qkfgfn"
       >
         For those interested in watching me wear a tie and answer questions: 
         <a
@@ -181,7 +181,7 @@ exports[`app renders without crashing 1`] = `
         .
       </p>
       <p
-        className="css-dtn5f5"
+        className="css-1qkfgfn"
       >
         Now with dark theme.
       </p>

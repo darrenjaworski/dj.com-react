@@ -3,21 +3,21 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
-  Switch
+  Switch,
 } from "react-router-dom";
 
 import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
-import themes from "./theme/theme";
 import { Sun, Moon } from "react-feather";
 
+import themes from "./theme/theme";
 import Home from "./routes/Home";
 import Projects from "./routes/Projects";
 import Journalism from "./routes/Journalism";
 import FourOhFour from "./routes/404";
 
 const AppWrapper = styled.div`
-  background: ${props => props.theme.bgColor};
+  background: ${(props) => props.theme.bgColor};
   transition: background 0.3s;
   min-height: 100vh;
 `;
@@ -35,7 +35,7 @@ const Nav = styled.nav`
 const Toggle = styled.button`
   position: relative;
   background: transparent;
-  color: ${props => props.theme.color};
+  color: ${(props) => props.theme.color};
   transition: all 0.5s;
   border: none;
   margin-top: 1rem;
@@ -52,7 +52,7 @@ class App extends React.Component {
     super();
     this.state = {
       theme: "dark",
-      image: undefined
+      image: undefined,
     };
   }
 
@@ -70,25 +70,26 @@ class App extends React.Component {
     this.setState({ image: url });
   }
 
-  toggleTheme = () => {
-    if (this.state.theme === "dark") {
+  toggleTheme() {
+    const { theme } = this.state;
+    if (theme === "dark") {
       this.setState({ theme: "light" });
       localStorage.setItem("theme", "light");
     } else {
       this.setState({ theme: "dark" });
       localStorage.setItem("theme", "dark");
     }
-  };
+  }
 
   render() {
     const { theme, image } = this.state;
-    const toggleTheme = this.toggleTheme;
+    const { toggleTheme } = this;
     const NavStyle = {
       color: `${themes[theme].linkColor}`,
       transition: "color 0.5s",
       textDecoration: "underline",
       marginRight: "0.5rem",
-      fontSize: "1.25rem"
+      fontSize: "1.25rem",
     };
 
     return (
