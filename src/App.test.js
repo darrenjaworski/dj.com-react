@@ -1,6 +1,9 @@
+/* eslint-disable */
+// eslint-disable-next-line prettier/prettier
 import React from "react";
 import renderer from "react-test-renderer";
-import { shallow, mount, render } from "enzyme";
+import { mount } from "enzyme";
+import { render, fireEvent } from "@testing-library/react";
 
 import App from "./App";
 
@@ -9,8 +12,6 @@ describe("app", () => {
     const tree = renderer.create(<App />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-  it("should be able to toggle light and dark mode", () => {});
 
   it("should store the theme mode in localstorage", () => {});
 
@@ -27,13 +28,16 @@ describe("app", () => {
   });
 
   it("should toggle between modes", () => {
-    const clickWrapper = mount(<App />);
-    const toggle = clickWrapper.find(".toggle");
+    const { getByTestId, debug } = render(<App />);
+    const toggle = getByTestId("toggle");
+    let body = getByTestId("body-theme");
 
-    toggle.simulate("click");
-    expect(clickWrapper.state.theme).toBe("light");
+    // toggle to light
+    fireEvent.click(toggle);
+    expect(body).toHaveStyle("background: #FFFDFC");
 
-    toggle.simulate("click");
-    expect(clickWrapper.state.theme).toBe("dark");
+    // toggle to dark
+    fireEvent.click(toggle);
+    expect(body).toHaveStyle("background: #282E33");
   });
 });

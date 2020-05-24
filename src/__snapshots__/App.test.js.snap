@@ -3,6 +3,7 @@
 exports[`app renders without crashing 1`] = `
 <div
   className="css-evlwd0"
+  data-testid="body-theme"
 >
   <div
     className="css-1ppe5cl"
@@ -69,7 +70,7 @@ exports[`app renders without crashing 1`] = `
         home
       </h1>
       <p
-        className="css-1qkfgfn"
+        className="css-dtn5f5"
       >
         Welcome. This is my home on the web. I dramatically simplified the site and I hope that you like it. I'm always available for public comment. Please send an email to 
         <a
@@ -81,34 +82,34 @@ exports[`app renders without crashing 1`] = `
         . (Please allow 10-15 months for response.)
       </p>
       <p
-        className="css-1qkfgfn"
+        className="css-dtn5f5"
       >
         Check out my past work in 
         <a
           href="/journalism"
           onClick={[Function]}
         >
-          <a
+          <span
             className="css-o6ojr2"
           >
             journalism
-          </a>
+          </span>
         </a>
          and what I'm currently hacking away at in 
         <a
           href="/projects"
           onClick={[Function]}
         >
-          <a
+          <span
             className="css-o6ojr2"
           >
             projects
-          </a>
+          </span>
         </a>
         .
       </p>
       <p
-        className="css-1qkfgfn"
+        className="css-dtn5f5"
       >
         As always you can find me on 
         <a
@@ -117,59 +118,53 @@ exports[`app renders without crashing 1`] = `
         >
           Twitter
         </a>
-        , 
+        , 
         <a
           className="css-o6ojr2"
           href="https://www.facebook.com/DarrenJJaworski"
         >
           Facebook
         </a>
-        , 
+        , 
         <a
           className="css-o6ojr2"
           href="https://www.instagram.com/darrenjaws/"
         >
           Instagram
         </a>
-        , 
+        , 
         <a
           className="css-o6ojr2"
           href="https://www.linkedin.com/in/darrenjaworski"
         >
           LinkedIn
         </a>
-        , 
+        , 
         <a
           className="css-o6ojr2"
           href="https://github.com/darrenjaworski"
         >
           Github
         </a>
-        , 
-        <a
-          className="css-o6ojr2"
-          href="http://bl.ocks.org/darrenjaworski"
-        >
-          bl.ocks.org
-        </a>
-        , 
+        , 
         <a
           className="css-o6ojr2"
           href="https://medium.com/@DarrenJaws"
         >
           Medium
         </a>
-        , 
+        , 
         <a
           className="css-o6ojr2"
           href="https://www.strava.com/athletes/3266824"
         >
           Strava
         </a>
+         
         ... (I'm sure I'm missing others. You get the point. Troll away.)
       </p>
       <p
-        className="css-1qkfgfn"
+        className="css-dtn5f5"
       >
         For those interested in watching me wear a tie and answer questions: 
         <a
@@ -181,13 +176,14 @@ exports[`app renders without crashing 1`] = `
         .
       </p>
       <p
-        className="css-1qkfgfn"
+        className="css-dtn5f5"
       >
         Now with dark theme.
       </p>
     </main>
     <button
-      className="toggle css-1i22e7o"
+      className="css-1i22e7o"
+      data-testid="toggle"
       onClick={[Function]}
     >
       <svg

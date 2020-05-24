@@ -18,7 +18,7 @@ Array [
     </a>
   </h1>,
   <p
-    className="css-owqykn"
+    className="css-z4ydkm"
   >
     Small React component to convert bytes.
   </p>,
@@ -33,7 +33,7 @@ Array [
     </a>
   </h1>,
   <p
-    className="css-owqykn"
+    className="css-z4ydkm"
   >
     A small D3 reusable charts library. Basically I'm working to add some missing .chart() functions in the D3 library.
   </p>,
@@ -48,7 +48,7 @@ Array [
     </a>
   </h1>,
   <p
-    className="css-owqykn"
+    className="css-z4ydkm"
   >
     Working through Algorithms, 4th edition and Introduction to Algorithms, 3rd edition using Javascript and teaching myself all the CS I don't work on in my day job. I'm thinking of expanding this and recreating the data structures and algorithms in Java and Python as well.
   </p>,
@@ -63,7 +63,7 @@ Array [
     </a>
   </h1>,
   <p
-    className="css-owqykn"
+    className="css-z4ydkm"
   >
     Short talk on D3.
   </p>,
@@ -78,7 +78,7 @@ Array [
     </a>
   </h1>,
   <p
-    className="css-owqykn"
+    className="css-z4ydkm"
   >
     An app to explore coffee shops in Oklahoma City. Designed and built from the ground up to be a hub for coffee people of OKC. However, a lot more work needs to be done on this project. I need to finish collecting data for coffee shops, to develop a suggestion system to lead you to the perfect cup in town, and to actually launch the thing. I'll take a couple of weekends and finish this project over a cup of coffee.
   </p>,
@@ -93,7 +93,7 @@ Array [
     </a>
   </h1>,
   <p
-    className="css-owqykn"
+    className="css-z4ydkm"
   >
     A series of explainers and tutorials for aspiring statisticians. This is another project that has significantly more work to be done. I'll need two cups of coffee.
   </p>,
@@ -108,7 +108,7 @@ Array [
     </a>
   </h1>,
   <p
-    className="css-owqykn"
+    className="css-z4ydkm"
   >
     I felt an earthquake during lunch. I decided to put a couple of minutes into a series of maps and charts that touch on the swarm of induced earthquakes in Oklahoma. Each visualization is updated with real-time earthquake data. I will include more data layers as they become available.
   </p>,
@@ -123,7 +123,7 @@ Array [
     </a>
   </h1>,
   <p
-    className="css-owqykn"
+    className="css-z4ydkm"
   >
     Similarity matrix of the 2015 Oklahoma Legislature voting trends. This small project basically answers the question: which legislators vote like each other?
   </p>,

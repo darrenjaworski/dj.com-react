@@ -4,7 +4,14 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
 const StyledLink = styled.a`
-  color: ${props => props.theme.linkColor};
+  color: ${(props) => props.theme.linkColor};
+  transition: color 0.5s;
+  text-decoration: underline;
+  font-size: 1.25rem;
+`;
+
+const NonSemanticLink = styled.span`
+  color: ${(props) => props.theme.linkColor};
   transition: color 0.5s;
   text-decoration: underline;
   font-size: 1.25rem;
@@ -13,7 +20,7 @@ const StyledLink = styled.a`
 export const TextLink = ({ link, children, href }) => {
   return link ? (
     <Link to={link}>
-      <StyledLink>{children}</StyledLink>
+      <NonSemanticLink>{children}</NonSemanticLink>
     </Link>
   ) : (
     <StyledLink href={href}>{children}</StyledLink>
@@ -23,12 +30,12 @@ export const TextLink = ({ link, children, href }) => {
 TextLink.propTypes = {
   children: PropTypes.node.isRequired,
   link: PropTypes.string,
-  href: PropTypes.string
+  href: PropTypes.string,
 };
 
 TextLink.defaultProps = {
   link: null,
-  href: ""
+  href: "",
 };
 
 export default TextLink;
