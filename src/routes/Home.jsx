@@ -25,26 +25,26 @@ const Home = () => (
     <Paragraph>
       As always you can find me on&nbsp;
       <TextLink href="https://twitter.com/darrenjaws">Twitter</TextLink>
-      ,&nbsp;
+      {", "}
       <TextLink href="https://www.facebook.com/DarrenJJaworski">
         Facebook
       </TextLink>
-      ,&nbsp;
+      {", "}
       <TextLink href="https://www.instagram.com/darrenjaws/">
         Instagram
       </TextLink>
-      ,&nbsp;
+      {", "}
       <TextLink href="https://www.linkedin.com/in/darrenjaworski">
         LinkedIn
       </TextLink>
-      ,&nbsp;
+      {", "}
       <TextLink href="https://github.com/darrenjaworski">Github</TextLink>
-      ,&nbsp;
-      <TextLink href="http://bl.ocks.org/darrenjaworski">bl.ocks.org</TextLink>
-      ,&nbsp;
+      {", "}
       <TextLink href="https://medium.com/@DarrenJaws">Medium</TextLink>
-      ,&nbsp;
-      <TextLink href="https://www.strava.com/athletes/3266824">Strava</TextLink>
+      {", "}
+      <TextLink href="https://www.strava.com/athletes/3266824">
+        Strava
+      </TextLink>{" "}
       ... (I&apos;m sure I&apos;m missing others. You get the point. Troll
       away.)
     </Paragraph>

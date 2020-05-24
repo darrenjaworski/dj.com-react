@@ -97,7 +97,7 @@ class App extends React.Component {
     return (
       <Router>
         <ThemeProvider theme={themes[theme]}>
-          <AppWrapper>
+          <AppWrapper data-testid="body-theme">
             <Container>
               <header>
                 <Nav>
@@ -120,7 +120,7 @@ class App extends React.Component {
                   <Route component={() => <FourOhFour image={image} />} />
                 </Switch>
               </main>
-              <Toggle className="toggle" onClick={toggleTheme}>
+              <Toggle data-testid="toggle" onClick={toggleTheme}>
                 {theme === "dark" ? <Sun /> : <Moon />}
               </Toggle>
             </Container>
