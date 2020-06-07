@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -44,91 +44,74 @@ const Toggle = styled.button`
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+  // The maximum is inclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      theme: "dark",
-      image: undefined,
-    };
+function getRandomBillMurray() {
+  const width = getRandomIntInclusive(500, 720);
+  const height = getRandomIntInclusive(300, 600);
+  const url = `https://www.fillmurray.com/g/${width}/${height}`;
 
-    this.toggleTheme = this.toggleTheme.bind(this);
-  }
+  const image = new Image();
+  image.src = url;
 
-  componentDidMount() {
-    const themeChoice = localStorage.getItem("theme");
-    if (themeChoice) {
-      this.setState({ theme: themeChoice });
-    }
-    const width = getRandomIntInclusive(500, 720);
-    const height = getRandomIntInclusive(300, 600);
-    const url = `https://www.fillmurray.com/g/${width}/${height}`;
-
-    const image = new Image();
-    image.src = url;
-    this.setState({ image: url });
-  }
-
-  toggleTheme() {
-    const { theme } = this.state;
-    if (theme === "dark") {
-      this.setState({ theme: "light" });
-      localStorage.setItem("theme", "light");
-    } else {
-      this.setState({ theme: "dark" });
-      localStorage.setItem("theme", "dark");
-    }
-  }
-
-  render() {
-    const { theme, image } = this.state;
-    const { toggleTheme } = this;
-    const NavStyle = {
-      color: `${themes[theme].linkColor}`,
-      transition: "color 0.5s",
-      textDecoration: "underline",
-      marginRight: "0.5rem",
-      fontSize: "1.25rem",
-    };
-
-    return (
-      <Router>
-        <ThemeProvider theme={themes[theme]}>
-          <AppWrapper data-testid="body-theme">
-            <Container>
-              <header>
-                <Nav>
-                  <NavLink style={NavStyle} to="/">
-                    home
-                  </NavLink>
-                  <NavLink style={NavStyle} to="/projects">
-                    projects
-                  </NavLink>
-                  <NavLink style={NavStyle} to="/journalism">
-                    journalism
-                  </NavLink>
-                </Nav>
-              </header>
-              <main>
-                <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route path="/projects" component={Projects} />
-                  <Route path="/journalism" component={Journalism} />
-                  <Route component={() => <FourOhFour image={image} />} />
-                </Switch>
-              </main>
-              <Toggle data-testid="toggle" onClick={toggleTheme}>
-                {theme === "dark" ? <Sun /> : <Moon />}
-              </Toggle>
-            </Container>
-          </AppWrapper>
-        </ThemeProvider>
-      </Router>
-    );
-  }
+  return url;
 }
+
+const App = () => {
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "dark"
+  );
+  const [image] = useState(getRandomBillMurray());
+
+  const toggleTheme = () =>
+    theme === "dark" ? setTheme("light") : setTheme("dark");
+
+  useEffect(() => localStorage.setItem("theme", theme));
+
+  const NavStyle = {
+    color: `${themes[theme].linkColor}`,
+    transition: "color 0.5s",
+    textDecoration: "underline",
+    marginRight: "0.5rem",
+    fontSize: "1.25rem",
+  };
+
+  return (
+    <Router>
+      <ThemeProvider theme={themes[theme]}>
+        <AppWrapper data-testid="body-theme">
+          <Container>
+            <header>
+              <Nav>
+                <NavLink style={NavStyle} to="/">
+                  home
+                </NavLink>
+                <NavLink style={NavStyle} to="/projects">
+                  projects
+                </NavLink>
+                <NavLink style={NavStyle} to="/journalism">
+                  journalism
+                </NavLink>
+              </Nav>
+            </header>
+            <main>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/projects" component={Projects} />
+                <Route path="/journalism" component={Journalism} />
+                <Route component={() => <FourOhFour image={image} />} />
+              </Switch>
+            </main>
+            <Toggle data-testid="toggle" onClick={toggleTheme}>
+              {theme === "dark" ? <Sun /> : <Moon />}
+            </Toggle>
+          </Container>
+        </AppWrapper>
+      </ThemeProvider>
+    </Router>
+  );
+};
 
 export default App;

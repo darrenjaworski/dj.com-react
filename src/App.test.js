@@ -13,22 +13,18 @@ describe("app", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should store the theme mode in localstorage", () => {});
+  it("should store the theme mode in localstorage", () => {
+    const { getByTestId } = render(<App />);
+    const toggle = getByTestId("toggle");
 
-  it("should render with a dark background when in dark mode", () => {
-    const wrapper = mount(<App />);
-    wrapper.setState({ theme: "dark" });
-    expect(wrapper.state("theme")).toBe("dark");
-  });
+    expect(window.localStorage.getItem("theme")).toBe("dark");
 
-  it("should render with a light background when in light mode", () => {
-    const wrapper = mount(<App />);
-    wrapper.setState({ theme: "light" });
-    expect(wrapper.state("theme")).toBe("light");
+    fireEvent.click(toggle);
+    expect(window.localStorage.getItem("theme")).toBe("light");
   });
 
   it("should toggle between modes", () => {
-    const { getByTestId, debug } = render(<App />);
+    const { getByTestId } = render(<App />);
     const toggle = getByTestId("toggle");
     let body = getByTestId("body-theme");
 
