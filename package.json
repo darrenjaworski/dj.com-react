@@ -26,6 +26,7 @@
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "jest-junit": "^12.0.0",
     "jest-puppeteer": "^4.4.0",
     "prettier": "^1.19.1",
     "puppeteer": "^1.20.0",
@@ -37,6 +38,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "test:e2e": "jest -c e2e/jest.config.js",
+    "test:junit": "react-scripts test --env=jsdom --reporters=default --reporters=jest-junit",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx --ignore-pattern *.test.js --fix"
   },
@@ -45,5 +47,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest-junit": {
+    "suiteName": "dj.com-test",
+    "outputDirectory": "test",
+    "outputName": "junit.xml",
+    "uniqueOutputName": "true"
+  }
 }
