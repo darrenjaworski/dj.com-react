@@ -51,7 +51,7 @@
   "jest-junit": {
     "suiteName": "dj.com-test",
     "outputDirectory": "test",
-    "outputName": "junit.xml",
-    "uniqueOutputName": "true"
+    "outputName": "dj.com-junit.xml",
+    "uniqueOutputName": "false"
   }
 }
