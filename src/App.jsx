@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
-  Switch,
+  Switch
 } from "react-router-dom";
 
 import styled from "@emotion/styled";
@@ -15,6 +15,7 @@ import Home from "./routes/Home";
 import Projects from "./routes/Projects";
 import Journalism from "./routes/Journalism";
 import FourOhFour from "./routes/404";
+import GeneticFrogs from "./routes/genetic-frogs/GeneticFrogs";
 
 const AppWrapper = styled.div`
   background: ${(props) => props.theme.bgColor};
@@ -101,6 +102,7 @@ const App = () => {
                 <Route exact path="/" component={Home} />
                 <Route path="/projects" component={Projects} />
                 <Route path="/journalism" component={Journalism} />
+                <Route path="/frogs" component={GeneticFrogs} />
                 <Route component={() => <FourOhFour image={image} />} />
               </Switch>
             </main>
