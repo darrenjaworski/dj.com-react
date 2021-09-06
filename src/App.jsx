@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
-  Switch
+  Switch,
 } from "react-router-dom";
 
 import styled from "@emotion/styled";
@@ -42,29 +42,10 @@ const Toggle = styled.button`
   margin-top: 1rem;
 `;
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  // The maximum is inclusive and the minimum is inclusive
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function getRandomBillMurray() {
-  const width = getRandomIntInclusive(500, 720);
-  const height = getRandomIntInclusive(300, 600);
-  const url = `https://www.fillmurray.com/g/${width}/${height}`;
-
-  const image = new Image();
-  image.src = url;
-
-  return url;
-}
-
 const App = () => {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "dark"
   );
-  const [image] = useState(getRandomBillMurray());
 
   const toggleTheme = () =>
     theme === "dark" ? setTheme("light") : setTheme("dark");
@@ -103,7 +84,7 @@ const App = () => {
                 <Route path="/projects" component={Projects} />
                 <Route path="/journalism" component={Journalism} />
                 <Route path="/frogs" component={GeneticFrogs} />
-                <Route component={() => <FourOhFour image={image} />} />
+                <Route component={() => <FourOhFour />} />
               </Switch>
             </main>
             <Toggle data-testid="toggle" onClick={toggleTheme}>

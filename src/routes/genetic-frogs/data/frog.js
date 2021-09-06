@@ -33,9 +33,9 @@ export class Frog {
   mutate() {
     if (Math.random() > 0.9) {
       const index = getRandomInt(0, 2);
-      if (index == 0) {
+      if (index === 0) {
         this.red = getRandomInt(0, 255);
-      } else if (index == 1) {
+      } else if (index === 1) {
         this.green = getRandomInt(0, 255);
       } else {
         this.blue = getRandomInt(0, 255);

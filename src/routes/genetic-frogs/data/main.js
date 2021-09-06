@@ -36,7 +36,7 @@ function createNewGeneration(frogs, background) {
   );
   let children = [];
   nextGeneration.forEach((d, i) => {
-    if (i % 2 == 0) return;
+    if (i % 2 === 0) return;
     const crosserIndex = i + 1;
     if (crosserIndex >= nextGeneration.length) return;
 
