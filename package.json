@@ -15,7 +15,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-feather": "^1.1.6",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^7.5.2",
     "rgb-hex": "^4.0.0",
     "uuid": "^8.3.2"
   },
