@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - npm install
+      - npm i
   build:
     commands:
       - npm run build
@@ -11,4 +11,4 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: build
+  base-directory: dist

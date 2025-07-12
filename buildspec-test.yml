@@ -3,13 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - npm install
+      - npm i
   build:
     commands:
-      - npm run test:junit
-reports:
-  jest_reports:
-    files:
-      - dj.com-junit.xml
-    file-format: JUNITXML
-    base-directory: test
+      - npm run test
