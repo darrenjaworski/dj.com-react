@@ -6,4 +6,4 @@ phases:
       - npm i
   build:
     commands:
-      - npm run test
+      - npm run test:report
