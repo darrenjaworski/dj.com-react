@@ -24,3 +24,4 @@ assets
 *.sln
 *.sw?
 
+html.meta.json.gz
