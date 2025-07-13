@@ -19,3 +19,7 @@ jobs:
           node-version-file: ".nvmrc"
       - run: npm ci
       - run: npm run test:report
+
+      - run: npm run lint
+
+      - run: npm run typecheck
