@@ -105,8 +105,8 @@ function App() {
         </p>
 
         <p>
-          As always you can find me on <SocialLinks /> ... (I'm sure I'm missing
-          others. You get the point. Troll away.)
+          As always you can find me on <SocialLinks />
+          ... (I'm sure I'm missing others. You get the point. Troll away.)
         </p>
 
         <p>
