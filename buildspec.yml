@@ -7,8 +7,6 @@ phases:
     commands:
       - npm ci
   build:
-    runtime-versions:
-      nodejs: latest
     commands:
       - npm run build
 artifacts:
