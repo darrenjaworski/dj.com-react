@@ -2,8 +2,12 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: latest
     commands:
-      - npm i
+      - npm ci
   build:
+    runtime-versions:
+      nodejs: latest
     commands:
       - npm run test:report
