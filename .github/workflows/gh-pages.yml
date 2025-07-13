@@ -21,7 +21,7 @@ jobs:
         with:
           node-version-file: ".nvmrc"
       - run: npm ci
-      - run: npm run build
+      - run: PUBLIC_URL="https://darrenjaworski.github.io/dj.com-react/" npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
