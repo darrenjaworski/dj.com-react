@@ -25,3 +25,4 @@ assets
 *.sw?
 
 html.meta.json.gz
+test-results

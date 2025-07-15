@@ -46,21 +46,30 @@ function App() {
   };
 
   const SocialLinks = () => (
-    <>
+    <span data-testid="social-links">
       {SOCIAL_LINKS.map((link, index) => (
         <span key={link.name}>
-          <a href={link.url}>{link.name}</a>
+          <a
+            href={link.url}
+            data-testid={`social-link-${link.name.toLowerCase()}`}
+          >
+            {link.name}
+          </a>
           {index < SOCIAL_LINKS.length - 1 ? ", " : ""}
         </span>
       ))}
-    </>
+    </span>
   );
 
   const Navigation = () => (
-    <nav>
+    <nav data-testid="navigation">
       <ul>
         <li>
-          <a href="/" onClick={(e) => handleNavClick("home", e)}>
+          <a
+            href="/"
+            onClick={(e) => handleNavClick("home", e)}
+            data-testid="nav-home"
+          >
             home
           </a>
         </li>
@@ -68,6 +77,7 @@ function App() {
           <a
             href="/journalism"
             onClick={(e) => handleNavClick("journalism", e)}
+            data-testid="nav-journalism"
           >
             journalism
           </a>
@@ -77,20 +87,26 @@ function App() {
   );
 
   const ThemeToggle = () => (
-    <button onClick={toggleTheme} aria-label="Toggle theme">
+    <button
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      data-testid="theme-toggle"
+    >
       {isDarkMode ? "☀️" : "🌙"}
     </button>
   );
 
   const HomePage = () => (
-    <>
+    <div data-testid="home-page">
       <h1>home</h1>
       <div>
         <p>
           Welcome. This is my home on the web. I dramatically simplified the
           site and I hope that you like it. I'm always available for public
           comment. Please send an email to{" "}
-          <a href="mailto:darrenjaworski@gmail.com">darrenjaworski@gmail.com</a>
+          <a href="mailto:darrenjaworski@gmail.com" data-testid="email-link">
+            darrenjaworski@gmail.com
+          </a>
           . (Please allow 10-15 months for response.)
         </p>
 
@@ -99,6 +115,7 @@ function App() {
           <a
             href="/journalism"
             onClick={(e) => handleNavClick("journalism", e)}
+            data-testid="journalism-link"
           >
             journalism.
           </a>
@@ -111,20 +128,28 @@ function App() {
 
         <p>
           For those interested in watching me wear a tie and answer questions:{" "}
-          <a href={RESUME_URL}>résumé</a>.
+          <a href={RESUME_URL} data-testid="resume-link">
+            résumé
+          </a>
+          .
         </p>
 
         <p>Now with dark theme.</p>
       </div>
-    </>
+    </div>
   );
 
   const JournalismPage = () => (
-    <>
+    <div data-testid="journalism-page">
       <h1>journalism</h1>
       <div>
         {journalismData.map((section) => (
-          <div key={section.section}>
+          <div
+            key={section.section}
+            data-testid={`journalism-section-${section.section
+              .replace(/\s+/g, "-")
+              .toLowerCase()}`}
+          >
             <h2>{section.section}</h2>
             <ul>
               {section.articles.map((article) => (
@@ -133,6 +158,10 @@ function App() {
                     href={article.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-testid={`article-link-${article.title
+                      .replace(/\s+/g, "-")
+                      .toLowerCase()
+                      .substring(0, 50)}`}
                   >
                     {article.title}
                   </a>
@@ -142,13 +171,15 @@ function App() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 
   return (
-    <div className="main-container">
+    <div className="main-container" data-testid="main-container">
       <Navigation />
-      <main>{currentPage === "home" ? <HomePage /> : <JournalismPage />}</main>
+      <main data-testid="main-content">
+        {currentPage === "home" ? <HomePage /> : <JournalismPage />}
+      </main>
       <ThemeToggle />
     </div>
   );
