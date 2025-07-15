@@ -8,7 +8,7 @@ test.describe("Journalism Data Integrity", () => {
 
   test("should display all journalism sections", async ({ page }) => {
     // Based on the journalism.json structure, check for expected sections
-    const sections = page.locator("h2");
+    const sections = page.getByTestId("journalism-page").locator("h2");
     await expect(sections).toHaveCount(3);
 
     // Check for specific sections using test IDs

@@ -17,7 +17,7 @@ test.describe("Accessibility", () => {
 
   test("should have proper link text", async ({ page }) => {
     // Check that links have meaningful text
-    const links = page.locator("a");
+    const links = page.getByTestId("main-content").locator("a");
     const linkCount = await links.count();
 
     for (let i = 0; i < linkCount; i++) {

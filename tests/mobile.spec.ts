@@ -24,7 +24,7 @@ test.describe("Mobile Responsiveness", () => {
     await expect(bodyText).toBeVisible();
 
     // Check that links are tappable (not too small)
-    const socialLinks = page.locator("a");
+    const socialLinks = page.getByTestId("social-links").locator("a");
     await expect(socialLinks.first()).toBeVisible();
   });
 
