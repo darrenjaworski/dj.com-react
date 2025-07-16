@@ -27,3 +27,4 @@ assets
 html.meta.json.gz
 test-results
 playwright-report
+coverage
