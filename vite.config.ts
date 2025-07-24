@@ -9,6 +9,7 @@ const config = defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/test/setup.ts",
+    reporters: ["default"],
     exclude: [
       "**/node_modules/**",
       "**/dist/**",

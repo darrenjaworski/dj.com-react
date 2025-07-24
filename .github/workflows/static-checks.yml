@@ -19,6 +19,6 @@ jobs:
           node-version-file: ".nvmrc"
 
       - run: npm ci
-      - run: npm run test:coverage
+      - run: GITHUB_ACTIONS='true' npm run test:run
       - run: npm run lint
       - run: npm run typecheck
