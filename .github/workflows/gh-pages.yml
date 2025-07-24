@@ -23,6 +23,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
+
       - run: npm ci
       - run: PUBLIC_URL="https://darrenjaworski.com/" npm run build
 
