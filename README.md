@@ -1,5 +1,9 @@
 # personal site
 
+[![static checks](https://github.com/darrenjaworski/dj.com-react/actions/workflows/static-checks.yml/badge.svg)](https://github.com/darrenjaworski/dj.com-react/actions/workflows/static-checks.yml)
+
+[![Playwright Tests](https://github.com/darrenjaworski/dj.com-react/actions/workflows/playwright.yml/badge.svg)](https://github.com/darrenjaworski/dj.com-react/actions/workflows/playwright.yml)
+
 ## vite
 
 This is a personal site built with [Vite](https://vitejs.dev/) and React.
