@@ -15,7 +15,7 @@ const config = defineConfig({
       "**/cypress/**",
       "**/.{idea,git,cache,output,temp}/**",
       "**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*",
-      "**/tests/**/*.spec.ts", // Exclude Playwright e2e tests
+      "**/e2e-tests/**/*.spec.ts", // Exclude Playwright e2e tests
     ],
     coverage: {
       provider: "v8",
