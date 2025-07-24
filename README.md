@@ -14,7 +14,7 @@ This is a personal site built with [Vite](https://vitejs.dev/) and React.
 ### Install dependencies
 
 ```bash
-npm install
+npm i
 ```
 
 ### Run locally (development)
