@@ -1,22 +1,22 @@
 :root {
-  --bg-color: #fffdfc;
+  --bg-color: #fafafa;
   --text-color: #1f2430;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #282e33;
+    --bg-color: #193549;
     --text-color: #eff2e2;
   }
 }
 
 [data-theme="light"] {
-  --bg-color: #fffdfc;
+  --bg-color: #fafafa;
   --text-color: #1f2430;
 }
 
 [data-theme="dark"] {
-  --bg-color: #282e33;
+  --bg-color: #193549;
   --text-color: #eff2e2;
 }
 
@@ -103,4 +103,9 @@ button {
   cursor: pointer;
   padding: 0.225rem;
   border-radius: 0.225rem;
+  color: inherit;
+}
+
+button svg {
+  color: inherit;
 }

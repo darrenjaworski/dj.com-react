@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import journalismData from "./data/journalism.json";
+import DarkModeIcon from "./components/DarkModeIcon";
+import LightModeIcon from "./components/LightModeIcon";
 
 type Theme = "light" | "dark" | null;
 type Page = "home" | "journalism";
@@ -92,7 +94,7 @@ function App() {
       aria-label="Toggle theme"
       data-testid="theme-toggle"
     >
-      {isDarkMode ? "☀️" : "🌙"}
+      {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
     </button>
   );
 
