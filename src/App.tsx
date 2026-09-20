@@ -18,6 +18,13 @@ const SOCIAL_LINKS = [
 const RESUME_URL =
   "https://docs.google.com/document/d/19L1W3PXUyboaUWB0shDedjKwzRPsqiBw0VxsAir45EU/edit?usp=sharing";
 
+type PageConfig = { id: Page; label: string; href: string };
+
+const PAGES: PageConfig[] = [
+  { id: "home", label: "home", href: "/" },
+  { id: "journalism", label: "journalism", href: "/journalism" },
+];
+
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
   const [theme, setTheme] = useState<Theme>(null);
@@ -63,27 +70,32 @@ function App() {
     </span>
   );
 
+  const NavLink = ({
+    page,
+    testId,
+    label,
+  }: {
+    page: PageConfig;
+    testId?: string;
+    label?: string;
+  }) => (
+    <a
+      href={page.href}
+      onClick={(e) => handleNavClick(page.id, e)}
+      data-testid={testId ?? `nav-${page.id}`}
+    >
+      {label ?? page.label}
+    </a>
+  );
+
   const Navigation = () => (
     <nav data-testid="navigation">
       <ul>
-        <li>
-          <a
-            href="/"
-            onClick={(e) => handleNavClick("home", e)}
-            data-testid="nav-home"
-          >
-            home
-          </a>
-        </li>
-        <li>
-          <a
-            href="/journalism"
-            onClick={(e) => handleNavClick("journalism", e)}
-            data-testid="nav-journalism"
-          >
-            journalism
-          </a>
-        </li>
+        {PAGES.map((page) => (
+          <li key={page.id}>
+            <NavLink page={page} />
+          </li>
+        ))}
       </ul>
     </nav>
   );
@@ -114,13 +126,11 @@ function App() {
 
         <p>
           Check out my past work in{" "}
-          <a
-            href="/journalism"
-            onClick={(e) => handleNavClick("journalism", e)}
-            data-testid="journalism-link"
-          >
-            journalism.
-          </a>
+          <NavLink
+            page={PAGES.find((p) => p.id === "journalism")!}
+            testId="journalism-link"
+            label="journalism."
+          />
         </p>
 
         <p>
