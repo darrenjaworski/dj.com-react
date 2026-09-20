@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import journalismData from "./data/journalism.json";
 import ThemeIcon from "./components/ThemeIcon";
+import { slugify } from "./utils/slugify";
 
 type Theme = "light" | "dark" | null;
 type Page = "home" | "journalism";
@@ -52,7 +53,7 @@ function App() {
         <span key={link.name}>
           <a
             href={link.url}
-            data-testid={`social-link-${link.name.toLowerCase()}`}
+            data-testid={`social-link-${slugify(link.name)}`}
           >
             {link.name}
           </a>
@@ -147,9 +148,7 @@ function App() {
         {journalismData.map((section) => (
           <div
             key={section.section}
-            data-testid={`journalism-section-${section.section
-              .replace(/\s+/g, "-")
-              .toLowerCase()}`}
+            data-testid={`journalism-section-${slugify(section.section)}`}
           >
             <h2>{section.section}</h2>
             <ul>
@@ -159,10 +158,7 @@ function App() {
                     href={article.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-testid={`article-link-${article.title
-                      .replace(/\s+/g, "-")
-                      .toLowerCase()
-                      .substring(0, 50)}`}
+                    data-testid={`article-link-${slugify(article.title, 50)}`}
                   >
                     {article.title}
                   </a>
