@@ -16,10 +16,14 @@ permissions:
 
 jobs:
   build-and-deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
@@ -30,4 +34,12 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist #
+          folder: dist
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: release-${{ github.run_number }}
+          name: Release ${{ github.run_number }}
+          generate_release_notes: true
+          target_commitish: ${{ github.event.workflow_run.head_sha || github.sha }}
