@@ -12,18 +12,18 @@ test.describe("Theme Toggle", () => {
 
   test("should toggle between light and dark theme", async ({ page }) => {
     const themeToggle = page.getByTestId("theme-toggle");
+    const html = page.locator("html");
 
-    // Get initial theme state
-    const initialEmoji = await themeToggle.textContent();
-    expect(initialEmoji).toMatch(/☀️|🌙/);
+    // Get initial icon svg markup
+    const initialIcon = await themeToggle.innerHTML();
 
     // Click to toggle theme
     await themeToggle.click();
 
-    // Theme should have changed
-    const newEmoji = await themeToggle.textContent();
-    expect(newEmoji).toMatch(/☀️|🌙/);
-    expect(newEmoji).not.toBe(initialEmoji);
+    // Theme should have changed: data-theme attribute set and icon swapped
+    await expect(html).toHaveAttribute("data-theme", /^(light|dark)$/);
+    const newIcon = await themeToggle.innerHTML();
+    expect(newIcon).not.toBe(initialIcon);
   });
 
   test("should apply theme to document", async ({ page }) => {
@@ -43,20 +43,20 @@ test.describe("Theme Toggle", () => {
 
     // Toggle theme
     await themeToggle.click();
-    const themeAfterToggle = await themeToggle.textContent();
+    const themeAfterToggle = await themeToggle.innerHTML();
 
     // Navigate to journalism page
     await page.getByTestId("nav-journalism").click();
 
     // Theme should persist
-    const themeOnJournalismPage = await themeToggle.textContent();
+    const themeOnJournalismPage = await themeToggle.innerHTML();
     expect(themeOnJournalismPage).toBe(themeAfterToggle);
 
     // Navigate back to home
     await page.getByTestId("nav-home").click();
 
     // Theme should still persist
-    const themeBackOnHome = await themeToggle.textContent();
+    const themeBackOnHome = await themeToggle.innerHTML();
     expect(themeBackOnHome).toBe(themeAfterToggle);
   });
 
@@ -65,11 +65,8 @@ test.describe("Theme Toggle", () => {
     await page.emulateMedia({ colorScheme: "dark" });
     await page.reload();
 
-    const themeToggle = page.getByTestId("theme-toggle");
-    const buttonText = await themeToggle.textContent();
-
-    // In dark mode, button should show sun (to switch to light)
-    expect(buttonText).toBe("☀️");
+    // In dark mode, icon should show light-mode icon (to switch to light)
+    await expect(page.getByTestId("light-mode-icon")).toBeVisible();
   });
 
   test("should respect system light mode preference", async ({ page }) => {
@@ -77,11 +74,8 @@ test.describe("Theme Toggle", () => {
     await page.emulateMedia({ colorScheme: "light" });
     await page.reload();
 
-    const themeToggle = page.getByTestId("theme-toggle");
-    const buttonText = await themeToggle.textContent();
-
-    // In light mode, button should show moon (to switch to dark)
-    expect(buttonText).toBe("🌙");
+    // In light mode, icon should show dark-mode icon (to switch to dark)
+    await expect(page.getByTestId("dark-mode-icon")).toBeVisible();
   });
 
   test("should toggle from system preference to explicit choice", async ({
@@ -93,15 +87,57 @@ test.describe("Theme Toggle", () => {
 
     const themeToggle = page.getByTestId("theme-toggle");
 
-    // Should show sun initially (system is dark)
-    await expect(themeToggle).toHaveText("☀️");
+    // Should show light-mode icon initially (system is dark)
+    await expect(page.getByTestId("light-mode-icon")).toBeVisible();
 
     // Click to go to light mode (explicit choice)
     await themeToggle.click();
-    await expect(themeToggle).toHaveText("🌙");
+    await expect(page.getByTestId("dark-mode-icon")).toBeVisible();
 
     // Click again to go to dark mode (explicit choice)
     await themeToggle.click();
-    await expect(themeToggle).toHaveText("☀️");
+    await expect(page.getByTestId("light-mode-icon")).toBeVisible();
+  });
+
+  test("should apply Catppuccin Latte colors in light mode", async ({
+    page,
+  }) => {
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.reload();
+
+    const bgColor = await page.evaluate(() =>
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--bg-color",
+      ),
+    );
+    const textColor = await page.evaluate(() =>
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--text-color",
+      ),
+    );
+
+    expect(bgColor.trim()).toBe("#eff1f5");
+    expect(textColor.trim()).toBe("#4c4f69");
+  });
+
+  test("should apply Catppuccin Frappé colors in dark mode", async ({
+    page,
+  }) => {
+    await page.emulateMedia({ colorScheme: "dark" });
+    await page.reload();
+
+    const bgColor = await page.evaluate(() =>
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--bg-color",
+      ),
+    );
+    const textColor = await page.evaluate(() =>
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--text-color",
+      ),
+    );
+
+    expect(bgColor.trim()).toBe("#303446");
+    expect(textColor.trim()).toBe("#c6d0f5");
   });
 });

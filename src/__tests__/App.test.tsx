@@ -94,6 +94,20 @@ describe("App", () => {
     expect(document.documentElement.getAttribute("data-theme")).toBeTruthy();
   });
 
+  it("swaps the theme icon when toggled", () => {
+    render(<App />);
+
+    // System preference is mocked as light, so dark-mode icon shows first
+    expect(screen.getByTestId("dark-mode-icon")).toBeInTheDocument();
+    expect(screen.queryByTestId("light-mode-icon")).not.toBeInTheDocument();
+
+    const themeButton = screen.getByRole("button", { name: "Toggle theme" });
+    fireEvent.click(themeButton);
+
+    expect(screen.getByTestId("light-mode-icon")).toBeInTheDocument();
+    expect(screen.queryByTestId("dark-mode-icon")).not.toBeInTheDocument();
+  });
+
   it("renders social media links on home page", () => {
     render(<App />);
 
