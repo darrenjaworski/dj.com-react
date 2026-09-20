@@ -24,27 +24,38 @@ type NavigationProps = {
   onNavigate: (page: Page, e: React.MouseEvent) => void;
 };
 
+type PageConfig = { id: Page; label: string; href: string };
+
+const PAGES: PageConfig[] = [
+  { id: "home", label: "home", href: "/" },
+  { id: "journalism", label: "journalism", href: "/journalism" },
+];
+
+type NavLinkProps = {
+  page: PageConfig;
+  onNavigate: (page: Page, e: React.MouseEvent) => void;
+  testId?: string;
+  label?: string;
+};
+
+const NavLink = ({ page, onNavigate, testId, label }: NavLinkProps) => (
+  <a
+    href={page.href}
+    onClick={(e) => onNavigate(page.id, e)}
+    data-testid={testId ?? `nav-${page.id}`}
+  >
+    {label ?? page.label}
+  </a>
+);
+
 const Navigation = ({ onNavigate }: NavigationProps) => (
   <nav data-testid="navigation">
     <ul>
-      <li>
-        <a
-          href="/"
-          onClick={(e) => onNavigate("home", e)}
-          data-testid="nav-home"
-        >
-          home
-        </a>
-      </li>
-      <li>
-        <a
-          href="/journalism"
-          onClick={(e) => onNavigate("journalism", e)}
-          data-testid="nav-journalism"
-        >
-          journalism
-        </a>
-      </li>
+      {PAGES.map((page) => (
+        <li key={page.id}>
+          <NavLink page={page} onNavigate={onNavigate} />
+        </li>
+      ))}
     </ul>
   </nav>
 );
@@ -80,13 +91,12 @@ const HomePage = ({ onNavigate }: HomePageProps) => (
 
       <p>
         Check out my past work in{" "}
-        <a
-          href="/journalism"
-          onClick={(e) => onNavigate("journalism", e)}
-          data-testid="journalism-link"
-        >
-          journalism.
-        </a>
+        <NavLink
+          page={PAGES.find((p) => p.id === "journalism")!}
+          onNavigate={onNavigate}
+          testId="journalism-link"
+          label="journalism."
+        />
       </p>
 
       <p>
@@ -145,8 +155,6 @@ function App() {
     e.preventDefault();
     setCurrentPage(page);
   };
-
-
 
   return (
     <div className="main-container" data-testid="main-container">
