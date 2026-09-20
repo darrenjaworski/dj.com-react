@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import journalismData from "./data/journalism.json";
 import ThemeIcon from "./components/ThemeIcon";
 import { slugify } from "./utils/slugify";
+import { useTheme } from "./hooks/useTheme";
 
-type Theme = "light" | "dark" | null;
 type Page = "home" | "journalism";
 
 const SOCIAL_LINKS = [
@@ -20,31 +20,11 @@ const RESUME_URL =
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
-  const [theme, setTheme] = useState<Theme>(null);
-
-  const isSystemDark = () =>
-    window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-  const isDarkMode = theme === "dark" || (theme === null && isSystemDark());
-
-  useEffect(() => {
-    if (theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-  }, [theme]);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   const handleNavClick = (page: Page, e: React.MouseEvent) => {
     e.preventDefault();
     setCurrentPage(page);
-  };
-
-  const toggleTheme = () => {
-    if (theme === null) {
-      setTheme(isSystemDark() ? "light" : "dark");
-    } else {
-      setTheme(theme === "light" ? "dark" : "light");
-    }
   };
 
   const SocialLinks = () => (
