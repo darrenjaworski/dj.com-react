@@ -1,23 +1,25 @@
+/* Catppuccin Latte (light) */
 :root {
-  --bg-color: #fafafa;
-  --text-color: #1f2430;
+  --bg-color: #eff1f5;
+  --text-color: #4c4f69;
 }
 
+/* Catppuccin Frappé (dark) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #193549;
-    --text-color: #eff2e2;
+    --bg-color: #303446;
+    --text-color: #c6d0f5;
   }
 }
 
 [data-theme="light"] {
-  --bg-color: #fafafa;
-  --text-color: #1f2430;
+  --bg-color: #eff1f5;
+  --text-color: #4c4f69;
 }
 
 [data-theme="dark"] {
-  --bg-color: #193549;
-  --text-color: #eff2e2;
+  --bg-color: #303446;
+  --text-color: #c6d0f5;
 }
 
 html {
