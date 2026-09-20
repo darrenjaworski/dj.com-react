@@ -18,6 +18,136 @@ const SOCIAL_LINKS = [
 const RESUME_URL =
   "https://docs.google.com/document/d/19L1W3PXUyboaUWB0shDedjKwzRPsqiBw0VxsAir45EU/edit?usp=sharing";
 
+const SocialLinks = () => (
+  <span data-testid="social-links">
+    {SOCIAL_LINKS.map((link, index) => (
+      <span key={link.name}>
+        <a href={link.url} data-testid={`social-link-${slugify(link.name)}`}>
+          {link.name}
+        </a>
+        {index < SOCIAL_LINKS.length - 1 ? ", " : ""}
+      </span>
+    ))}
+  </span>
+);
+
+type NavigationProps = {
+  onNavigate: (page: Page, e: React.MouseEvent) => void;
+};
+
+const Navigation = ({ onNavigate }: NavigationProps) => (
+  <nav data-testid="navigation">
+    <ul>
+      <li>
+        <a
+          href="/"
+          onClick={(e) => onNavigate("home", e)}
+          data-testid="nav-home"
+        >
+          home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/journalism"
+          onClick={(e) => onNavigate("journalism", e)}
+          data-testid="nav-journalism"
+        >
+          journalism
+        </a>
+      </li>
+    </ul>
+  </nav>
+);
+
+type ThemeToggleProps = {
+  isDarkMode: boolean;
+  onToggle: () => void;
+};
+
+const ThemeToggle = ({ isDarkMode, onToggle }: ThemeToggleProps) => (
+  <button onClick={onToggle} aria-label="Toggle theme" data-testid="theme-toggle">
+    {isDarkMode ? <ThemeIcon variant="light" /> : <ThemeIcon variant="dark" />}
+  </button>
+);
+
+type HomePageProps = {
+  onNavigate: (page: Page, e: React.MouseEvent) => void;
+};
+
+const HomePage = ({ onNavigate }: HomePageProps) => (
+  <div data-testid="home-page">
+    <h1>home</h1>
+    <div>
+      <p>
+        Welcome. This is my home on the web. I dramatically simplified the
+        site and I hope that you like it. I'm always available for public
+        comment. Please send an email to{" "}
+        <a href="mailto:darrenjaworski@gmail.com" data-testid="email-link">
+          darrenjaworski@gmail.com
+        </a>
+        . (Please allow 10-15 months for response.)
+      </p>
+
+      <p>
+        Check out my past work in{" "}
+        <a
+          href="/journalism"
+          onClick={(e) => onNavigate("journalism", e)}
+          data-testid="journalism-link"
+        >
+          journalism.
+        </a>
+      </p>
+
+      <p>
+        As always you can find me on <SocialLinks />
+        ... (I'm sure I'm missing others. You get the point. Troll away.)
+      </p>
+
+      <p>
+        For those interested in watching me wear a tie and answer questions:{" "}
+        <a href={RESUME_URL} data-testid="resume-link">
+          résumé
+        </a>
+        .
+      </p>
+
+      <p>Now with dark theme.</p>
+    </div>
+  </div>
+);
+
+const JournalismPage = () => (
+  <div data-testid="journalism-page">
+    <h1>journalism</h1>
+    <div>
+      {journalismData.map((section) => (
+        <div
+          key={section.section}
+          data-testid={`journalism-section-${slugify(section.section)}`}
+        >
+          <h2>{section.section}</h2>
+          <ul>
+            {section.articles.map((article) => (
+              <li key={article.title}>
+                <a
+                  href={article.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid={`article-link-${slugify(article.title, 50)}`}
+                >
+                  {article.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
   const [theme, setTheme] = useState<Theme>(null);
@@ -47,137 +177,17 @@ function App() {
     }
   };
 
-  const SocialLinks = () => (
-    <span data-testid="social-links">
-      {SOCIAL_LINKS.map((link, index) => (
-        <span key={link.name}>
-          <a
-            href={link.url}
-            data-testid={`social-link-${slugify(link.name)}`}
-          >
-            {link.name}
-          </a>
-          {index < SOCIAL_LINKS.length - 1 ? ", " : ""}
-        </span>
-      ))}
-    </span>
-  );
-
-  const Navigation = () => (
-    <nav data-testid="navigation">
-      <ul>
-        <li>
-          <a
-            href="/"
-            onClick={(e) => handleNavClick("home", e)}
-            data-testid="nav-home"
-          >
-            home
-          </a>
-        </li>
-        <li>
-          <a
-            href="/journalism"
-            onClick={(e) => handleNavClick("journalism", e)}
-            data-testid="nav-journalism"
-          >
-            journalism
-          </a>
-        </li>
-      </ul>
-    </nav>
-  );
-
-  const ThemeToggle = () => (
-    <button
-      onClick={toggleTheme}
-      aria-label="Toggle theme"
-      data-testid="theme-toggle"
-    >
-      {isDarkMode ? <ThemeIcon variant="light" /> : <ThemeIcon variant="dark" />}
-    </button>
-  );
-
-  const HomePage = () => (
-    <div data-testid="home-page">
-      <h1>home</h1>
-      <div>
-        <p>
-          Welcome. This is my home on the web. I dramatically simplified the
-          site and I hope that you like it. I'm always available for public
-          comment. Please send an email to{" "}
-          <a href="mailto:darrenjaworski@gmail.com" data-testid="email-link">
-            darrenjaworski@gmail.com
-          </a>
-          . (Please allow 10-15 months for response.)
-        </p>
-
-        <p>
-          Check out my past work in{" "}
-          <a
-            href="/journalism"
-            onClick={(e) => handleNavClick("journalism", e)}
-            data-testid="journalism-link"
-          >
-            journalism.
-          </a>
-        </p>
-
-        <p>
-          As always you can find me on <SocialLinks />
-          ... (I'm sure I'm missing others. You get the point. Troll away.)
-        </p>
-
-        <p>
-          For those interested in watching me wear a tie and answer questions:{" "}
-          <a href={RESUME_URL} data-testid="resume-link">
-            résumé
-          </a>
-          .
-        </p>
-
-        <p>Now with dark theme.</p>
-      </div>
-    </div>
-  );
-
-  const JournalismPage = () => (
-    <div data-testid="journalism-page">
-      <h1>journalism</h1>
-      <div>
-        {journalismData.map((section) => (
-          <div
-            key={section.section}
-            data-testid={`journalism-section-${slugify(section.section)}`}
-          >
-            <h2>{section.section}</h2>
-            <ul>
-              {section.articles.map((article) => (
-                <li key={article.title}>
-                  <a
-                    href={article.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-testid={`article-link-${slugify(article.title, 50)}`}
-                  >
-                    {article.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
   return (
     <div className="main-container" data-testid="main-container">
-      <Navigation />
+      <Navigation onNavigate={handleNavClick} />
       <main data-testid="main-content">
-        {currentPage === "home" ? <HomePage /> : <JournalismPage />}
+        {currentPage === "home" ? (
+          <HomePage onNavigate={handleNavClick} />
+        ) : (
+          <JournalismPage />
+        )}
       </main>
-      <ThemeToggle />
+      <ThemeToggle isDarkMode={isDarkMode} onToggle={toggleTheme} />
     </div>
   );
 }
