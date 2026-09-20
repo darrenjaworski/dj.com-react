@@ -3,13 +3,20 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 */8 * * *" # Run every 8 hours at minute 0
+  workflow_run:
+    workflows: [gh page deploy]
+    types:
+      - completed
 
 jobs:
   test:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
