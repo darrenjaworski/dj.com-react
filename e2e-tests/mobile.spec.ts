@@ -37,9 +37,9 @@ test.describe("Mobile Responsiveness", () => {
 
     // Test theme toggle
     const themeToggle = page.getByTestId("theme-toggle");
-    const initialTheme = await themeToggle.textContent();
+    const initialTheme = await themeToggle.getAttribute("data-current-mode");
     await themeToggle.click();
-    const newTheme = await themeToggle.textContent();
+    const newTheme = await themeToggle.getAttribute("data-current-mode");
     expect(newTheme).not.toBe(initialTheme);
   });
 

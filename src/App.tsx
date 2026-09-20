@@ -93,6 +93,7 @@ function App() {
       onClick={toggleTheme}
       aria-label="Toggle theme"
       data-testid="theme-toggle"
+      data-current-mode={isDarkMode ? "dark" : "light"}
     >
       {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
     </button>
